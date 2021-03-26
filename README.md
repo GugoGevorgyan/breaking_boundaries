@@ -12,3 +12,8 @@ $. php artisan passport:install
 ///$. php artisan passport:client
 7. php artisan config:cache
 8. php artisan serv
+
+
+
+
+//    clubi timer@ stanalu hamar ->  $teams = Club::find(2)->teams;

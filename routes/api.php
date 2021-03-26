@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,7 +27,7 @@ Route::prefix('/user')->middleware('auth:api')->group(function () {
 });
 
 
-
+Route::resource('/mail', MailController::class);
 Route::resource('/login', LoginController::class);
 Route::resource('/register', RegisterController::class);
 

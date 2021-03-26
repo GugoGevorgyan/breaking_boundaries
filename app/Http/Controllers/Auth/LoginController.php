@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Club;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,7 +18,11 @@ class LoginController extends Controller
      */
     public function index()
     {
-        //
+        $team = User::find(1)->team()->orderBy('name')->get();
+
+//        $teams = Club::find(2)->teams;
+            return response()->json($team);
+
     }
 
     /**
@@ -54,11 +61,6 @@ class LoginController extends Controller
         if (!auth()->attempt($loginData)) {
             return response()->json(['message' => 'Invalid Credentials'], 401);
         }
-
-
-//        if (auth()->user()->status != 1){
-//            return response()->json(['message' => 'Please wait untill our admin will confirm your page'], 401);
-//        }
 
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
 

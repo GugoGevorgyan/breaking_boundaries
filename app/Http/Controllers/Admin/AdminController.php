@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\RegisterRequest;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,19 +33,9 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RegisterRequest $request)
+    public function store(Request $request)
     {
-
-        User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'age' => $request['age'],
-            'phone' => $request['phone'],
-            'password' => Hash::make($request['password']),
-        ]);
-        $login = new LoginController();
-        $userToken = $login->store($request);
-        return $userToken;
+        //
     }
 
     /**
