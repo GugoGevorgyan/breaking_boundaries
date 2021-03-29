@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -37,8 +38,15 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RegisterRequest $request)
+    public function store(Request $request)
     {
+        $ee = Gate::allows('isSuperAdmin');
+        return response()->json([$ee]);
+        if (Gate::allows('isSuperAdmin')) {
+            return response()->json(["rrrrr"]);
+        }else{
+            return response()->json(["ssssss"]);
+        }
 
         User::create([
             'name' => $request['name'],

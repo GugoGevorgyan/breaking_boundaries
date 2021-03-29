@@ -39,5 +39,13 @@ class AuthServiceProvider extends ServiceProvider
 //        Passport::tokensExpireIn(now()->addDays(15));
 //        Passport::refreshTokensExpireIn(now()->addDays(30));
 //        Passport::personalAccessTokensExpireIn(now()->addMonths(6));
+
+        Gate::define('isSuperAdmin', function($user) {
+//            dd($user->role);
+            return $user->role->name === 'superAdmin';
+        });
+        Gate::define('isAdmin', function($user) {
+            return $user->role->name === 'admin';
+        });
     }
 }

@@ -17,7 +17,7 @@ class RoleSeeder extends Seeder
         DB::table('roles')->delete();
         DB::table('roles')->insert([
             'id' => 1,
-            'name' => 'SuperAdmin',
+            'name' => 'superAdmin',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

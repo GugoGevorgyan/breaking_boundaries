@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,7 +56,7 @@ class MailController extends Controller
             //tanel password confirmi dasht;
             return response()->json(['$user_id' => $user_id]);
         }
-        return redirect('https://e.mail.ru');
+        abort(403, 'Unauthorized action.');
     }
 
     /**
@@ -78,24 +79,32 @@ class MailController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $adminData = [
+            'email' => $request->email,
+            'password'=> $request->password,
+        ];
+        if (!auth()->attempt($adminData)) {
+            return response()->json(['message' => 'Invalid Credentials'], 401);
+        }
+
         $rules = [
             'password_new' => 'required|string|min:4|same:password_confirmation',
         ];
 
         $this->validate($request, $rules);
         $user = User::find($id);
-        $password = $user->password;
-        $checkPassword = Hash::check($request->password,$password);
-        if ($checkPassword){
             $user -> update([
                 'password' => Hash::make($request->password_new),
                 'status' => 1,
                 'email_verified_at' => now(),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-            return response()->json(['message' => 'your password has been changed']);
-        }
-        return response()->json(['message' => 'your password has been changed']);
+        $login = new LoginController();
+        $userToken = $login->store($request);
+        return $userToken;
+//            return response()->json(['message' => 'your password has been changed',$userToken]);
+//        }
+//        return response()->json(['message' => 'Your password was incorrect']);
     }
 
     /**

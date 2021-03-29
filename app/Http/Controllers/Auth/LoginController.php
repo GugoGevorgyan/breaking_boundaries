@@ -18,11 +18,7 @@ class LoginController extends Controller
      */
     public function index()
     {
-        $team = User::find(1)->team()->orderBy('name')->get();
-
-//        $teams = Club::find(2)->teams;
-            return response()->json($team);
-
+        //
     }
 
     /**
@@ -43,7 +39,6 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
         $loginData = [
             'email' => $request->email,
             'password'=> $request->password,

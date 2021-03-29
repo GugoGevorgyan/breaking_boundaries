@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class AdminController extends Controller
 {
@@ -65,21 +68,38 @@ class AdminController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Gate::allows('isSuperAdmin') || Auth::id() === $id) {
+            $rules = [
+                'name' => 'required|string',
+            ];
+
+            $this->validate($request, $rules);
+            User::find($id) ->update([
+                'name'=> $request->name,
+            ]);
+            return response()->json(['message' => 'your data has been successfully changed']);
+        }
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        if (Gate::allows('isSuperAdmin') && $id !== '1' ) {
+            $name = User::find($id)->name;
+            User::destroy($id);
+            return response()->json(['message'=>'you have successfully removed '. $name.' from admin']);
+        } else {
+            return response()->json(['message'=>'Oops, something went wrong']);
+        }
     }
 }

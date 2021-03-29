@@ -7,6 +7,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\Admin\SuperAdminController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Auth\AuthenticationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,6 +27,16 @@ use App\Http\Controllers\MailController;
 
 Route::prefix('/user')->middleware('auth:api')->group(function () {
     Route::resource('/', UserController::class);
+    Route::post('/reset-password-token', [AuthenticationController::class,'resetPassword'])->name('reset-password-token');
+    Route::post('/forgot-password', [AuthenticationController::class,'sendPasswordResetToken'])->name('reset-password');
+    Route::post('/new-password', [AuthenticationController::class,'setNEwAccountPassword'])->name('new-account-password');
+
+});
+
+Route::middleware('auth:api')->group(function (){
+    Route::resource('/superAdmin', SuperAdminController::class)->middleware('superAdmin');
+    Route::put('/status/{admin}', [SuperAdminController::class, 'status'])->middleware('superAdmin');
+    Route::resource('/admin', AdminController::class)->middleware('admin');
 });
 
 
