@@ -28,6 +28,7 @@ class CreateTeamsTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

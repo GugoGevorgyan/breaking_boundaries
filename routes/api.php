@@ -7,6 +7,10 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\Admin\SuperAdminController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\ClubController;
+use App\Http\Controllers\Admin\TeamTypeController;
+use App\Http\Controllers\Admin\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +32,16 @@ Route::prefix('/user')->middleware('auth:api')->group(function () {
 });
 
 Route::middleware('auth:api')->group(function (){
-    Route::resource('/superAdmin', SuperAdminController::class)->middleware('superAdmin');
-    Route::put('/status/{admin}', [SuperAdminController::class, 'status'])->middleware('superAdmin');
+    Route::prefix('admin')->group(function (){
+        Route::resource('/superAdmin', SuperAdminController::class)->middleware('superAdmin');
+        Route::put('/status/{admin}', [SuperAdminController::class, 'status'])->middleware('superAdmin');
+        Route::resource('/city', CityController::class)->middleware('admin');
+        Route::resource('/club', ClubController::class)->middleware('admin');
+        Route::resource('/team_type', TeamTypeController::class)->middleware('admin');
+        Route::resource('/team', TeamController::class)->middleware('admin');
+        Route::put('team/status/{team}', [TeamController::class, 'status'])->middleware('admin');
+    });
+
     Route::resource('/admin', AdminController::class)->middleware('admin');
 });
 

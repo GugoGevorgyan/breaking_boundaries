@@ -83,7 +83,6 @@ class AdminController extends Controller
             ]);
             return response()->json(['message' => 'your data has been successfully changed']);
         }
-
     }
 
     /**

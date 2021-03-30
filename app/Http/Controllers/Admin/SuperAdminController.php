@@ -137,7 +137,7 @@ class SuperAdminController extends Controller
 
 
     public function status(Request $request, $id){
-//
+
         if (Gate::allows('isSuperAdmin') && $id != '1'){
             $user = User::find($id);
             if ($user){

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Team_typeRequest;
+use App\Models\Team_type;
 use Illuminate\Http\Request;
 
 class TeamTypeController extends Controller
@@ -10,11 +12,12 @@ class TeamTypeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        //
+        $team_type = Team_type::all();
+        return response()->json($team_type);
     }
 
     /**
@@ -31,11 +34,15 @@ class TeamTypeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(Team_typeRequest $request)
     {
-        //
+        $team_type = new Team_type();
+        $team_type->name = $request->name;
+        $team_type->criteria = $request->criteria;
+        $team_type->save();
+        return response()->json(['message' => 'The team_type successfully created']);
     }
 
     /**

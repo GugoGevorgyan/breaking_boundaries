@@ -15,7 +15,7 @@ class CreateTeamUserTable extends Migration
     {
         Schema::create('team_user', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status')->default(true);
+            $table->boolean('status')->default(false);
             $table->foreignId('user_id')
                 ->constrained()
                 ->onUpdate('cascade')

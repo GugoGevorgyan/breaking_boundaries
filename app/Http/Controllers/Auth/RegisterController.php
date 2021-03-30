@@ -38,23 +38,19 @@ class RegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
-        $ee = Gate::allows('isSuperAdmin');
-        return response()->json([$ee]);
-        if (Gate::allows('isSuperAdmin')) {
-            return response()->json(["rrrrr"]);
-        }else{
-            return response()->json(["ssssss"]);
-        }
 
-        User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'age' => $request['age'],
-            'phone' => $request['phone'],
-            'password' => Hash::make($request['password']),
-        ]);
+        $user = new User();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->age = $request['age'];
+        $user->phone = $request['phone'];
+        $user->password =  Hash::make($request['password']);
+        $user ->save();
+
+        $user->team()->attach($request->team_id);
+
         $login = new LoginController();
         $userToken = $login->store($request);
         return $userToken;
