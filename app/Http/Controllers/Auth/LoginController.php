@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Models\Club;
 use App\Models\Team;
 use App\Models\User;
@@ -37,21 +38,12 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
         $loginData = [
             'email' => $request->email,
             'password'=> $request->password,
         ];
-
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['message' => $validator->errors()], 401);
-        }
 
         if (!auth()->attempt($loginData)) {
             return response()->json(['message' => 'Invalid Credentials'], 401);

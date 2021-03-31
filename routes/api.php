@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ClubController;
 use App\Http\Controllers\Admin\TeamTypeController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +52,5 @@ Route::resource('/mail', MailController::class);
 Route::resource('/login', LoginController::class);
 Route::resource('/register', RegisterController::class);
 
+Route::post('password/forgot', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('passwords.sent');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.reset');

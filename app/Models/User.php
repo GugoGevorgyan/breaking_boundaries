@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Notifications\PasswordResetNotification;
+use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -52,12 +54,19 @@ class User extends Authenticatable
 //        'role'
 //    ];
 
-    public function role(){
+    public function role()
+    {
         return $this->belongsTo(Role::class);
     }
 
-    public function team(){
+    public function team()
+    {
         return $this->belongsToMany(Team::class);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordResetNotification($token));
     }
 
 }
