@@ -4,20 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Team extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
 
 //    protected $with = ['users'];
 
-    public function club(){
+    public function club()
+    {
         return $this->belongsTo(Club::class);
     }
 
-    public function team_type(){
+    /**
+     * @return BelongsTo
+     */
+    public function team_type()
+    {
         return $this->belongsTo(Team_type::class);
     }
 

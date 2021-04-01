@@ -33,17 +33,18 @@ class ClubController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(ClubRequest $request)
-    {if (isset($request->image) && $request->image->getClientOriginalName()) {
-        $ext = $request->image->getClientOriginalExtension();
-        $file = rand(1, 100) . time() . "." . "$ext";
-        $request->image->storeAs('public/clubs', $file);
-    } else {
-        $file = '';
-    }
+    {
+        if (isset($request->image) && $request->image->getClientOriginalName()) {
+            $ext = $request->image->getClientOriginalExtension();
+            $file = rand(1, 100) . time() . "." . "$ext";
+            $request->image->storeAs('public/clubs', $file);
+        } else {
+            $file = '';
+        }
         $club = new Club();
         $club->name = $request->name;
         $club->image = $file;
@@ -54,7 +55,7 @@ class ClubController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -65,7 +66,7 @@ class ClubController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function edit($id)
@@ -77,8 +78,8 @@ class ClubController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Club  $club
+     * @param \Illuminate\Http\Request $request
+     * @param Club $club
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Club $club)
@@ -104,7 +105,7 @@ class ClubController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Club  $club
+     * @param Club $club
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($club)

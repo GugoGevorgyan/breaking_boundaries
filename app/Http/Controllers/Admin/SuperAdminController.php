@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
-use App\Http\Requests\UserAdminRequest;
 use App\Mail\Breaking_boundaries;
 use App\Models\User;
-use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -25,9 +23,9 @@ class SuperAdminController extends Controller
     public function index()
     {
         if (Gate::allows('isSuperAdmin')) {
-            return response()->json(["rrrrr"=>Auth::user()->role->name === 'superAdmin']);
-        }else{
-            return response()->json(["ssssss"=>Auth::user()]);
+            return response()->json(["rrrrr" => Auth::user()->role->name === 'superAdmin']);
+        } else {
+            return response()->json(["ssssss" => Auth::user()]);
         }
     }
 
@@ -44,7 +42,7 @@ class SuperAdminController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(RegisterRequest $request)
@@ -64,7 +62,7 @@ class SuperAdminController extends Controller
                     'status' => 0,
                     'remember_token' => $code,
                 ]);
-                return response()->json(['message' => 'The admin successfully created'],200);
+                return response()->json(['message' => 'The admin successfully created'], 200);
             }
             return response()->json(['error' => $toEmail->getMessage()]);
         }
@@ -74,7 +72,7 @@ class SuperAdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -85,7 +83,7 @@ class SuperAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -96,8 +94,8 @@ class SuperAdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -108,17 +106,18 @@ class SuperAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
     }
+
     /**
      * sending SMS to the admin's mail
      *
-     * @param  string  $code
+     * @param string $code
      * @param    $email
      * @param    $password
      * @return \Illuminate\Http\Response
@@ -135,12 +134,12 @@ class SuperAdminController extends Controller
     }
 
 
+    public function status(Request $request, $id)
+    {
 
-    public function status(Request $request, $id){
-
-        if (Gate::allows('isSuperAdmin') && $id != '1'){
+        if (Gate::allows('isSuperAdmin') && $id != '1') {
             $user = User::find($id);
-            if ($user){
+            if ($user) {
                 $status = $user->status === '1' ? 0 : 1;
                 $user->update([
                     'status' => $status,

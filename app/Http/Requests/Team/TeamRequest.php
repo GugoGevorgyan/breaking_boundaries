@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Team;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Team_typeRequest extends FormRequest
+class TeamRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class Team_typeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:20|unique:team_types',
-            'criteria'=> 'required|max:20',
+            'name' => 'required|max:255|unique:teams',
         ];
     }
 }

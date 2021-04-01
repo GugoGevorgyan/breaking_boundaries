@@ -33,7 +33,7 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -44,7 +44,7 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -55,7 +55,7 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -66,8 +66,8 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
@@ -78,8 +78,8 @@ class AdminController extends Controller
             ];
 
             $this->validate($request, $rules);
-            User::find($id) ->update([
-                'name'=> $request->name,
+            User::find($id)->update([
+                'name' => $request->name,
             ]);
             return response()->json(['message' => 'your data has been successfully changed']);
         }
@@ -88,17 +88,17 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        if (Gate::allows('isSuperAdmin') && $id !== '1' ) {
+        if (Gate::allows('isSuperAdmin') && $id !== '1') {
             $name = User::find($id)->name;
             User::destroy($id);
-            return response()->json(['message'=>'you have successfully removed '. $name.' from admin']);
+            return response()->json(['message' => 'you have successfully removed ' . $name . ' from admin']);
         } else {
-            return response()->json(['message'=>'Oops, something went wrong']);
+            return response()->json(['message' => 'Oops, something went wrong']);
         }
     }
 }

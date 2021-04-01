@@ -36,16 +36,16 @@ class LoginController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(LoginRequest $request)
     {
-        $loginData = [
-            'email' => $request->email,
-            'password'=> $request->password,
-        ];
+//        $loginData = [
+//            'email' => $request->email,
+//            'password'=> $request->password,
+//        ];
 
-        if (!auth()->attempt($loginData)) {
+        if (!auth()->attempt($request->only(['email','password']))) {
             return response()->json(['message' => 'Invalid Credentials'], 401);
         }
 
