@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Team;
+namespace App\Http\Requests\Club;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,8 +24,8 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'sometimes|max:255|unique:teams,name,'. $this->team['id'],
-            'status' => 'sometimes|boolean',
+//            'name' => 'sometimes|max:255|unique:clubs,name,'. $this->club['id'],
+//            'image' => 'sometimes|file|image|mimes:jpeg,png,jpg,svg|dimensions:max_width=500,max_height=400|max:960',
         ];
     }
 }

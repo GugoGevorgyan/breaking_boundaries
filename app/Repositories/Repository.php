@@ -128,8 +128,7 @@ abstract class Repository
             $target = $this->find($target);
         }
         if (is_array($target)) {
-            $array_key = array_key_first($target);
-            $target = $this->findBy([$array_key => $target[$array_key]]);
+            $target = $this->findBy($target);
         }
         return $target;
     }
@@ -151,21 +150,19 @@ abstract class Repository
     /**
      * @param array $filters
      * @param array $relations
-     * @return Collection
+     * @return Builder|Builder[]|Collection|Model|null
      */
 
-    public function get($filters = [], array $relations = []): Collection
+    public function get($filters = [], array $relations = [])
     {
-//        dd(intval($filters));
-////        if (!empty($filters)) {
-//            return $this->fetch(intval($filters))->with(array_values($relations))->get();
-////        }
-//        if(empty($filters)){
+        if (!empty($filters)) {
+            if (is_numeric($filters)) return $this->query->with(array_values($relations))->find($filters);
+            if (is_array($filters)) return $this->query->with(array_values($relations))->where($filters)->get();
+        }
+        if(empty($filters)){
             return $this->query->with(array_values($relations))->get();
-//        };
-//        return $this->fetch($filters)->with(array_values($relations))->get();
+        };
     }
-
 
 }
 

@@ -3,13 +3,28 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UpdateRequest;
 use App\Models\User;
+use App\Services\AdminService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
+
 
 class AdminController extends Controller
 {
+    /**
+     * @var AdminService $adminService
+     */
+    private AdminService $adminService;
+
+    /**
+     * AdminController constructor.
+     * @param AdminService $adminService
+     */
+    public function __construct(AdminService $adminService)
+    {
+        $this->adminService = $adminService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -66,39 +81,26 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param UpdateRequest $request
+     * @param User $admin
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request,User $admin)
     {
-        if (Gate::allows('isSuperAdmin') || Auth::id() === $id) {
-            $rules = [
-                'name' => 'required|string',
-            ];
-
-            $this->validate($request, $rules);
-            User::find($id)->update([
-                'name' => $request->name,
-            ]);
-            return response()->json(['message' => 'your data has been successfully changed']);
-        }
+            $result = $this->adminService->update($request, $admin);
+            return response()->json([$result]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param User $admin
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($id)
+    public function destroy(User $admin)
     {
-        if (Gate::allows('isSuperAdmin') && $id !== '1') {
-            $name = User::find($id)->name;
-            User::destroy($id);
-            return response()->json(['message' => 'you have successfully removed ' . $name . ' from admin']);
-        } else {
-            return response()->json(['message' => 'Oops, something went wrong']);
-        }
+        $result = $this->adminService->delete($admin);
+        return response()->json([$result]);
+
     }
 }

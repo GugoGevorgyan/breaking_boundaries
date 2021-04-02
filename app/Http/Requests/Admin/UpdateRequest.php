@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Team;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,9 +23,11 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
+//        dd($this->admin['id']);
         return [
-            'name' => 'sometimes|max:255|unique:teams,name,'. $this->team['id'],
-            'status' => 'sometimes|boolean',
+            'name' => 'sometimes|string',
+            'email' => 'sometimes|required|email|unique:users,email,'. $this->admin['id'],
+            'password' => 'sometimes|string|min:4|confirmed',
         ];
     }
 }

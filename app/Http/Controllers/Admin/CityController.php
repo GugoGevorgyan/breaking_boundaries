@@ -3,14 +3,27 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CityRequest;
+use App\Http\Requests\City\CreateRequest;
+use App\Http\Requests\City\UpdateRequest;
 use App\Models\City;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
+use App\Services\CityService;
 
 class CityController extends Controller
 {
+    /**
+     * @var CityService $cityService
+     */
+    private CityService $cityService;
+
+    /**
+     * CityController constructor.
+     * @param CityService $cityService
+     */
+    public function __construct(CityService $cityService)
+    {
+        $this->cityService = $cityService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +31,9 @@ class CityController extends Controller
      */
     public function index()
     {
-        $city = City::all();
-        return response()->json($city);
+        $result = $this->cityService->allCity();
+        return response()->json([$result]);
+
     }
 
     /**
@@ -35,15 +49,13 @@ class CityController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param CreateRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(CityRequest $request)
+    public function store(CreateRequest $request)
     {
-        $city = new City();
-        $city->name = $request->name;
-        $city->save();
-        return response()->json(['message' => 'The City successfully created']);
+        $result = $this->cityService->create($request);
+        return response()->json([$result]);
     }
 
     /**
@@ -60,13 +72,13 @@ class CityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param City $city
      * @return \Illuminate\Http\JsonResponse
      */
-    public function edit($id)
+    public function edit(City $city)
     {
-        $edit = City::find($id);
-        return response()->json($edit);
+        $result = $this->cityService->getCity($city->id);
+        return response()->json([$result]);
     }
 
     /**
@@ -76,16 +88,10 @@ class CityController extends Controller
      * @param City $city
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, City $city)
+    public function update(UpdateRequest $request, City $city)
     {
-        $request->validate([
-            'name' => "required|max:20|unique:cities,name,{$city->id}"
-        ]);
-
-        $city->update([
-            'name' => $request->name,
-        ]);
-        return response()->json(['message' => 'The City was successfully updated']);
+        $result = $this->cityService->update($request, $city);
+        return response()->json([$result]);
     }
 
     /**
@@ -93,11 +99,11 @@ class CityController extends Controller
      *
      * @param City $city
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
      */
-    public function destroy($city)
+    public function destroy(City $city)
     {
-        $name = $city->name;
-        $city->delete();
-        return response()->json(['message' => 'you have successfully removed ' . $name . ' city ']);
+        $result = $this->cityService->delete($city);
+        return response()->json([$result]);
     }
 }

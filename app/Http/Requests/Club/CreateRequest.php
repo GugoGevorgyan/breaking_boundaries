@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Team;
+namespace App\Http\Requests\Club;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class CreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'sometimes|max:255|unique:teams,name,'. $this->team['id'],
-            'status' => 'sometimes|boolean',
+            'name' => 'required|max:20|unique:clubs',
+            'image' => 'file|image|mimes:jpeg,png,jpg,svg|dimensions:max_width=500,max_height=400|max:960',
         ];
     }
 }

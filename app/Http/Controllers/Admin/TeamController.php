@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Team\UpdateRequest;
 use App\Http\Requests\Team\TeamRequest;
 use App\Models\Team;
-use Illuminate\Http\Request;
 use App\Services\TeamService;
 
 class TeamController extends Controller
@@ -30,36 +29,9 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $result = $this->teamService->get();
+        $result = $this->teamService->getAllTeam();
         return response()->json([$result]);
-//        $teams = Team::all();
-//
-//        $teamClubUsers = $teams->mapWithKeys(function ($item) {
-//            if (!empty($item->club['image'])) {
-//                $imagePath = asset('storage/clubs/' . $item->club['image']);
-//            } else {
-//                $imagePath = "";
-//            }
-//            return [$item['name'] => [
-//                'criteria' => $item->team_type['criteria'],
-//                'type-name' => $item->team_type['name'],
-//                'city' => $item->city['name'],
-//                'club' => $item->club['name'],
-//                'club_image' => $imagePath,
-//                'status' => $item['status'],
-//                'users' => $item->users->map(function ($team) {
-//                    return [
-//                        'name' => $team->name,
-//                        'email' => $team->email,
-//                        'phone' => $team->phone,
-//                        'status' => $team->status,
-//                    ];
-//                })
-//            ]
-//            ];
-//        });
-//
-//        return response()->json($teamClubUsers->all());
+
     }
 
     /**
@@ -99,11 +71,12 @@ class TeamController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function edit($id)
     {
-        //
+        $result = $this->teamService->getTeam($id);
+        return response()->json($result);
     }
 
     /**

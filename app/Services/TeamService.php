@@ -8,6 +8,7 @@ use App\Http\Requests\Team\UpdateRequest;
 use App\Http\Requests\Team\TeamRequest;
 use App\Models\Team;
 use App\Repositories\TeamRepository;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
@@ -64,34 +65,52 @@ class TeamService
         }
     }
 
-    public function get(){
+    /**
+     * @param array $filters
+     * @param array $relations
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
 
+    public function getTeam($filters){
+        $filters = intval($filters);
+        $teams = $filters ? $this->teamRepository->get($filters): null;
+        return $teams;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection
+     */
+
+    public function getAllTeam(){
         $teams = $this->teamRepository->get();
-                $teamClubUsers = $teams->mapWithKeys(function ($item) {
-            if (!empty($item->club['image'])) {
-                $imagePath = asset('storage/clubs/' . $item->club['image']);
-            } else {
-                $imagePath = "";
-            }
-            return [$item['name'] => [
-                'criteria' => $item->team_type['criteria'],
-                'type-name' => $item->team_type['name'],
-                'city' => $item->city['name'],
-                'club' => $item->club['name'],
-                'club_image' => $imagePath,
-                'status' => $item['status'],
-                'users' => $item->users->map(function ($team) {
-                    return [
-                        'name' => $team->name,
-                        'email' => $team->email,
-                        'phone' => $team->phone,
-                        'status' => $team->status,
-                    ];
-                })
-            ]
-            ];
-        });
-return $teamClubUsers;
+        if(($teams instanceof Collection)){
+            $teamClubUsers = $teams->mapWithKeys(function ($item) {
+                if (!empty($item->club['image'])) {
+                    $imagePath = asset('storage/clubs/' . $item->club['image']);
+                } else {
+                    $imagePath = "";
+                }
+                return [$item['name'] => [
+                    'criteria' => $item->team_type['criteria'],
+                    'type-name' => $item->team_type['name'],
+                    'city' => $item->city['name'],
+                    'club' => $item->club['name'],
+                    'club_image' => $imagePath,
+                    'status' => $item['status'],
+                    'users' => $item->users->map(function ($team) {
+                        return [
+                            'name' => $team->name,
+                            'email' => $team->email,
+                            'phone' => $team->phone,
+                            'status' => $team->status,
+                        ];
+                    })
+                ]
+                ];
+            });
+            return $teamClubUsers;
+        }
+        return null;
     }
 
 }
