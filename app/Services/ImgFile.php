@@ -12,7 +12,7 @@ trait ImgFile
 {
     public function createFile($file, $folder)
     {
-//        dd($file);
+
         $image_64 = $file; //your base64 encoded data
 
         $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
@@ -25,12 +25,12 @@ trait ImgFile
 
         $imageName = Str::random(10) . time() . '.' . $extension;
 
-
         Storage::disk('public')->put($imageName, base64_decode($image));
         Storage::disk('public')->move($imageName, $folder . '/' . $imageName);
 
         return $imageName;
     }
+
 
     /**
      * @param $file
@@ -57,5 +57,6 @@ trait ImgFile
     {
         return asset('storage/' . $folder . '/' . $imageName);
     }
+
 
 }

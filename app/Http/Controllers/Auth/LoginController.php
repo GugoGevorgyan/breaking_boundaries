@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LoginRequest;
-use App\Models\Club;
-use App\Models\Team;
-use App\Models\User;
+use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+
 
 class LoginController extends Controller
 {
@@ -36,14 +33,10 @@ class LoginController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      */
     public function store(LoginRequest $request)
     {
-//        $loginData = [
-//            'email' => $request->email,
-//            'password'=> $request->password,
-//        ];
 
         if (!auth()->attempt($request->only(['email','password']))) {
             return response()->json(['message' => 'Invalid Credentials'], 401);

@@ -52,23 +52,16 @@ class ClubService
 
 
     /**
-     * @param CreateRequest $request
+     * @param $request
      * @return Model|mixed
      */
 
-    public function create($request)
+    public function create(CreateRequest $request)
     {
         if (!empty($request->image)) {
             $file = $this->createFile($request->image, 'clubs');
         }
 
-//        if (!empty($request->image) && $request->image->getClientOriginalName()) {
-//            $ext = $request->image->getClientOriginalExtension();
-//            $file = rand(1, 100) . time() . "." . "$ext";
-//            $request->image->storeAs('public/clubs', $file);
-//        } else {
-//            $file = '';
-//        }
         $data = ['name' => $request->name, 'image' => $file];
         $result = $this->clubRepository->create($data);
         $result->image = !empty($result->image) ? asset('storage/clubs/' . $result->image) : null;

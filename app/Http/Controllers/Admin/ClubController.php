@@ -5,14 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Club\CreateRequest;
 use App\Http\Requests\Club\UpdateRequest;
-use App\Http\Requests\ClubRequest;
 use App\Models\Club;
 use App\Services\ClubService;
-use Illuminate\Http\File;
-use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class ClubController extends Controller
 {
@@ -87,6 +81,7 @@ class ClubController extends Controller
     public function edit(Club $club)
     {
         $result = $this->clubService->getClub($club->id);
+        $result->image = asset('storage/clubs/'.$result->image);
         return response()->json([$result]);
     }
 
@@ -115,8 +110,5 @@ class ClubController extends Controller
     {
         $result = $this->clubService->delete($club);
         return response()->json([$result]);
-//        $name = $club->name;
-//        $club->delete();
-//        return response()->json(['message' => 'you have successfully removed ' . $name . ' club ']);
     }
 }

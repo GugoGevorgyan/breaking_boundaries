@@ -70,12 +70,13 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param Team $team
      * @return \Illuminate\Http\JsonResponse
      */
-    public function edit($id)
+
+    public function edit(Team $team)
     {
-        $result = $this->teamService->getTeam($id);
+        $result = $this->teamService->getTeam($team->id);
         return response()->json($result);
     }
 
@@ -95,10 +96,12 @@ class TeamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param team $team
+     * @param Team $team
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
      */
-    public function destroy($team)
+
+    public function destroy(Team $team)
     {
         $result = $this->teamService->delete($team);
         return response()->json([$result]);

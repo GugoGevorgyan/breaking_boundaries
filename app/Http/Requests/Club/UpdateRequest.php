@@ -24,7 +24,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-//            'name' => 'sometimes|max:255|unique:clubs,name,'. $this->club['id'],
+            'name' => 'sometimes|max:255|unique:clubs,name,'. $this->club['id'],
 //            'image' => 'sometimes|file|image|mimes:jpeg,png,jpg,svg|dimensions:max_width=500,max_height=400|max:960',
         ];
     }

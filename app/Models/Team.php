@@ -10,9 +10,6 @@ class Team extends Model
 {
     use HasFactory;
 
-
-//    protected $with = ['users'];
-
     public function club()
     {
         return $this->belongsTo(Club::class);

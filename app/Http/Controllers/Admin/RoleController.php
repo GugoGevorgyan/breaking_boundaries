@@ -3,10 +3,28 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Role\CreateRequest;
+use App\Http\Requests\Role\UpdateRequest;
+use App\Models\Role;
+use App\Services\RoleService;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+    /**
+     * @var RoleService
+     */
+    private RoleService $roleService;
+
+    /**
+     * ClubController constructor.
+     * @param RoleService $roleService
+     */
+
+    public function __construct(RoleService $roleService)
+    {
+        $this->roleService = $roleService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -30,11 +48,14 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param CreateRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+
+    public function store(CreateRequest $request)
     {
+        $result = $this->roleService->create($request);
+        return response()->json([$result]);
 
     }
 
@@ -63,23 +84,27 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UpdateRequest $request
+     * @param Role $role
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+
+    public function update(UpdateRequest $request, Role $role)
     {
-        //
+        $result = $this->roleService->update($request,$role);
+        return response()->json([$result]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Role $role
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
-        //
+        $result = $this->roleService->delete($role);
+        return response()->json([$result]);
     }
 }

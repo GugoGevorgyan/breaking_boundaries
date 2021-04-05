@@ -52,16 +52,15 @@ class TeamService
     }
 
     /**
-     * @param $id
+     * @param Team $team
      * @return bool|null
      * @throws \Exception
      */
 
-    public function delete($id)
+    public function delete(Team $team)
     {
         if (Gate::allows('isAdmin')) {
-            $id = intval($id);
-            return $this->teamRepository->delete($id);
+            return $this->teamRepository->delete($team);
         }
     }
 
@@ -73,8 +72,7 @@ class TeamService
 
     public function getTeam($filters){
         $filters = intval($filters);
-        $teams = $filters ? $this->teamRepository->get($filters): null;
-        return $teams;
+        return $filters ? $this->teamRepository->get($filters): null;
     }
 
     /**

@@ -23,13 +23,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41e6e309-62f9-447b-80a6-85be609b4522" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/breaking_boundaries.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/breaking_boundaries.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ClubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SuperAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SuperAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeamTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TeamTypeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Auth/CreateRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CityRequest.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Requests/Club/CreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Club/CreateRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Club/UpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Club/UpdateRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ClubRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/LoginRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/RegisterRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Team_type.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team_type.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/AdminRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/AdminRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/ClubService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ClubService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ImgFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ImgFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +189,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Services" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Repositories" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -189,11 +201,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Services" />
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Repositories" />
+      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Services" />
+      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Requests\Auth" />
+      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Requests\File" />
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Requests\City" />
-      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Requests\Admin" />
-      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Requests\Team" />
     </key>
   </component>
   <component name="RunManager">
@@ -253,10 +265,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="665" y="64" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617352029652" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617365059979">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617628952134">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617365059979" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617628952134" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1617350985484">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -265,18 +277,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="697" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617611719528" />
-    <state x="668" y="254" width="666" height="592" key="find.popup" timestamp="1617610552189">
+    <state x="668" y="254" width="666" height="592" key="find.popup" timestamp="1617625068831">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="254" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617610552189" />
+    <state x="668" y="254" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617625068831" />
     <state x="677" y="291" key="refactoring.ChangeSignatureDialog" timestamp="1617277151447">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="677" y="291" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617277151447" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1617617552383">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1617625184370">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617617552383" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617625184370" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1617611483195">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

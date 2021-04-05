@@ -25,7 +25,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'name' => 'required|max:20|unique:clubs',
-//            'image' => 'file|image|mimes:jpeg,png,jpg,svg|dimensions:max_width=500,max_height=400|max:960',
+//            'image' => 'required|file|image|mimes:jpeg,png,jpg,svg|dimensions:max_width=500,max_height=400|max:960',
         ];
     }
 }

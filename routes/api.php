@@ -36,11 +36,12 @@ Route::prefix('/user')->middleware('auth:api')->group(function () {
 Route::middleware('auth:api')->group(function (){
     Route::middleware('admin')->prefix('admin')->group(function (){
         Route::resource('/superAdmin', SuperAdminController::class)->middleware('superAdmin');
-        Route::put('/status/{admin}', [SuperAdminController::class, 'status'])->middleware('superAdmin');
+//        Route::put('/status/{admin}', [SuperAdminController::class, 'status'])->middleware('superAdmin');
         Route::resource('/city', CityController::class);
         Route::resource('/club', ClubController::class);
         Route::resource('/team_type', TeamTypeController::class);
         Route::resource('/team', TeamController::class);
+        Route::resource('/role', TeamController::class);
 //        Route::put('team/status/{team}', [TeamController::class, 'status'])->middleware('admin');
     });
 

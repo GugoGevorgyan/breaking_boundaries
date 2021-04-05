@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Team;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ClubRequest extends FormRequest
+class TeamTypeUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class ClubRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:20|unique:clubs',
-            'image' => 'file|image|mimes:jpeg,png,jpg,svg|dimensions:max_width=500,max_height=400|max:960',
+            'name' => 'sometimes|max:20|unique:team_types,'. $this->team_type['id'],
+            'criteria'=> 'sometimes|max:20',
         ];
     }
 }
