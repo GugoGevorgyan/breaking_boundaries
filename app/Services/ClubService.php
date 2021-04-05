@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Gate;
 
 class ClubService
 {
+    use ImgFile;
+
     /**]
      * @var ClubRepository
      */
@@ -54,17 +56,21 @@ class ClubService
      * @return Model|mixed
      */
 
-    public function create(CreateRequest $request)
+    public function create($request)
     {
-        if (!empty($request->image) && $request->image->getClientOriginalName()) {
-            $ext = $request->image->getClientOriginalExtension();
-            $file = rand(1, 100) . time() . "." . "$ext";
-            $request->image->storeAs('public/clubs', $file);
-        } else {
-            $file = '';
+        if (!empty($request->image)) {
+            $file = $this->createFile($request->image, 'clubs');
         }
+
+//        if (!empty($request->image) && $request->image->getClientOriginalName()) {
+//            $ext = $request->image->getClientOriginalExtension();
+//            $file = rand(1, 100) . time() . "." . "$ext";
+//            $request->image->storeAs('public/clubs', $file);
+//        } else {
+//            $file = '';
+//        }
         $data = ['name' => $request->name, 'image' => $file];
-        $result =  $this->clubRepository->create($data);
+        $result = $this->clubRepository->create($data);
         $result->image = !empty($result->image) ? asset('storage/clubs/' . $result->image) : null;
         return $result;
     }
@@ -77,28 +83,25 @@ class ClubService
 
     public function update(UpdateRequest $request, Club $club)
     {
-//        $club = $filters ? $this->clubRepository->get($filters) : null;
-                if (!empty($request->image) && $request->image->getClientOriginalName()) {
-            $ext = $request->image->getClientOriginalExtension();
-            $file = rand(1, 100) . time() . "." . "$ext";
-            $request->image->storeAs('public/images', $file);
-        } else {
-            $file = $club->image;
-        }
-                dd($club,$request->all());
-        return $this->clubRepository->update($request->all(), $city);
+
+        $file = $this->updateFile($request->image, $club, 'clubs');
+        $request->image = $file;
+        $newClub = $request->only('name', 'image');
+        $newClub['image'] = $file;
+
+        return $this->clubRepository->update($newClub, $club);
     }
 
     /**
-     * @param Club $city
+     * @param Club $club
      * @return bool|null
      * @throws \Exception
      */
 
-    public function delete(Club $city)
+    public function delete(Club $club)
     {
         if (Gate::allows('isAdmin')) {
-            return $this->clubRepository->delete($city);
+            return $this->clubRepository->delete($club);
         }
         return false;
     }
