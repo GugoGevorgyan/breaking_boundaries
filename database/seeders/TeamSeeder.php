@@ -18,7 +18,7 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'Hoosiers',
                     'club_id' => 1,
-                    'team_type_id' => 4,
+                    'type_id' => 4,
                     'city_id' => 2,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
@@ -27,7 +27,7 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'Seminoles',
                     'club_id' => 1,
-                    'team_type_id' => 4,
+                    'type_id' => 4,
                     'city_id' => 2,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
@@ -35,7 +35,7 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'Flight Time',
                     'club_id' => 2,
-                    'team_type_id' => 2,
+                    'type_id' => 2,
                     'city_id' => 3,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
@@ -43,7 +43,7 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'Cream',
                     'club_id' => 2,
-                    'team_type_id' => 5,
+                    'type_id' => 5,
                     'city_id' => 3,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
@@ -52,7 +52,7 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'The Crossovers',
                     'club_id' => 2,
-                    'team_type_id' => 6,
+                    'type_id' => 6,
                     'city_id' => 4,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
@@ -60,7 +60,7 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'Dip and Dazzle',
                     'club_id' => 2,
-                    'team_type_id' => 7,
+                    'type_id' => 7,
                     'city_id' => 1,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
@@ -68,7 +68,7 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'Gothams',
                     'club_id' => 1,
-                    'team_type_id' => 7,
+                    'type_id' => 7,
                     'city_id' => 1,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
@@ -77,7 +77,7 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'The Wingfoots',
                     'club_id' => 3,
-                    'team_type_id' => 6,
+                    'type_id' => 6,
                     'city_id' => 4,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
@@ -85,7 +85,7 @@ class TeamSeeder extends Seeder
                 [
                     'name' => 'The All-Americans',
                     'club_id' => 3,
-                    'team_type_id' => 2,
+                    'type_id' => 2,
                     'city_id' => 3,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),

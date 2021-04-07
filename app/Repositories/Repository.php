@@ -163,5 +163,35 @@ abstract class Repository
         };
     }
 
+    /**
+     * @param Model $model
+     * @param $relation
+     * @param $foreInPivotKey
+     * @param array $request
+     */
+
+    public function createPivot(Model $model,$relation,$foreInPivotKey,array $request = []){
+       $model->$relation()->attach($foreInPivotKey,$request);
+    }
+
+    /**
+     * @param Model $model
+     * @param $relation
+     * @param $foreInPivotKey
+     */
+    public function deletePivot(Model $model,$relation,$foreInPivotKey){
+       $model->$relation()->detach($foreInPivotKey);
+    }
+
+    /**
+     * @param Model $model
+     * @param $relation
+     * @param $foreInPivotKey
+     * @param array $request
+     */
+    public function updatePivot(Model $model,$relation,$foreInPivotKey,array $request){
+       $model->$relation()->updateExistingPivot($foreInPivotKey, $request);
+    }
+
 }
 

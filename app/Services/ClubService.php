@@ -10,11 +10,12 @@ use App\Models\Club;
 use App\Repositories\ClubRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Gate;
 
 class ClubService
 {
-    use ImgFile;
+    use ImgFile,ValidatesRequests;
 
     /**]
      * @var ClubRepository

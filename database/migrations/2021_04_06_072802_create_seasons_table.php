@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeamUserTable extends Migration
+class CreateSeasonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateTeamUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('team_user', function (Blueprint $table) {
+        Schema::create('seasons', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status')->default(false);
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('team_id')->constrained()->cascadeOnDelete();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateTeamUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team_user');
+        Schema::dropIfExists('seasons');
     }
 }

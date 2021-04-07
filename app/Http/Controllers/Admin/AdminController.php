@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UpdateRequest;
 use App\Models\User;
+use App\Response\ApiResponse;
 use App\Services\AdminService;
 use Illuminate\Http\Request;
 
@@ -87,8 +88,7 @@ class AdminController extends Controller
      */
     public function update(UpdateRequest $request,User $admin)
     {
-            $result = $this->adminService->update($request, $admin);
-            return response()->json([$result]);
+        return APIResponse::successResponse($this->adminService->update($request, $admin));
     }
 
     /**

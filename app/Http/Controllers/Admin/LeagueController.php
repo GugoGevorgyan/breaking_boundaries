@@ -3,38 +3,36 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Club\CreateRequest;
-use App\Http\Requests\Club\UpdateRequest;
-use App\Models\Club;
-use App\Services\ClubService;
+use App\Http\Requests\League\CreateRequest;
+use App\Http\Requests\League\UpdateRequest;
+use App\Models\League;
+use App\Services\LeagueService;
+use Illuminate\Http\Request;
 
-class ClubController extends Controller
+class LeagueController extends Controller
 {
     /**
-     * @var ClubService
+     * @var LeagueService
      */
-    private ClubService $clubService;
+    private LeagueService $leagueService;
 
     /**
      * ClubController constructor.
-     * @param ClubService $clubService
+     * @param LeagueService $leagueService
      */
 
-    public function __construct(ClubService $clubService)
+    public function __construct(LeagueService $leagueService)
     {
-        $this->clubService = $clubService;
+        $this->leagueService = $leagueService;
     }
-
-
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $result = $this->clubService->allClub();
-        return response()->json([$result]);
+        //
     }
 
     /**
@@ -50,22 +48,22 @@ class ClubController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param CreateRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(CreateRequest $request)
     {
-        $result = $this->clubService->create($request);
+        $result = $this->leagueService->create($request);
         return response()->json([$result]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param  \App\Models\League  $league
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(League $league)
     {
         //
     }
@@ -73,41 +71,37 @@ class ClubController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Club $club
-     * @return \Illuminate\Http\JsonResponse
+     * @param  \App\Models\League  $league
+     * @return \Illuminate\Http\Response
      */
-
-    public function edit(Club $club)
+    public function edit(League $league)
     {
-        $result = $this->clubService->getClub($club->id);
-        $result->image = asset('storage/clubs/'.$result->image);
-        return response()->json([$result]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param UpdateRequest $request
-     * @param Club $club
+     * @param League $league
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(UpdateRequest $request, Club $club)
+    public function update(UpdateRequest $request, League $league)
     {
-        $result = $this->clubService->update($request,$club);
+        $result = $this->leagueService->update($request, $league);
         return response()->json([$result]);
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param Club $club
+     * @param \App\Models\League $league
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function destroy(Club $club)
+    public function destroy(League $league)
     {
-        $result = $this->clubService->delete($club);
+        $result = $this->leagueService->delete($league);
         return response()->json([$result]);
     }
 }

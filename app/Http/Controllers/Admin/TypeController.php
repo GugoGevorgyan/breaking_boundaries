@@ -3,27 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Team\TeamTypeRequest;
-use App\Http\Requests\Team\TeamTypeUpdateRequest;
-use App\Models\Team_type;
-use App\Services\TeamService;
-use App\Services\TeamTypeService;
-use Illuminate\Http\Request;
+use App\Http\Requests\Type\CreateRequest;
+use App\Http\Requests\Type\UpdateRequest;
+use App\Models\Type;
+use App\Services\TypeService;
 
-class TeamTypeController extends Controller
+class TypeController extends Controller
 {
     /**
-     * @var TeamTypeService $teamTypeService
+     * @var TypeService $typeService
      */
-    private TeamTypeService $teamTypeService;
+    private TypeService $typeService;
 
     /**
      * TeamController constructor.
-     * @param TeamTypeService $teamTypeService
+     * @param TypeService $typeService
      */
-    public function __construct(TeamTypeService $teamTypeService)
+    public function __construct(TypeService $typeService)
     {
-        $this->teamTypeService = $teamTypeService;
+        $this->typeService = $typeService;
     }
 
     /**
@@ -33,8 +31,8 @@ class TeamTypeController extends Controller
      */
     public function index()
     {
-        $team_type = Team_type::all();
-        return response()->json($team_type);
+        $type = Type::all();
+        return response()->json($type);
     }
 
     /**
@@ -53,9 +51,9 @@ class TeamTypeController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(TeamTypeRequest $request)
+    public function store(CreateRequest $request)
     {
-        $result = $this->teamTypeService->create($request);
+        $result = $this->typeService->create($request);
         return response()->json([$result]);
 
     }
@@ -74,40 +72,40 @@ class TeamTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Team_type $teamType
+     * @param Type $type
      * @return \Illuminate\Http\JsonResponse
      */
 
-    public function edit(Team_type $teamType)
+    public function edit(Type $type)
     {
-        $result = $this->teamTypeService->getTeamType($teamType->id);
+        $result = $this->typeService->getTeamType($type->id);
         return response()->json($result);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param TeamTypeUpdateRequest $request
-     * @param Team_type $teamType
+     * @param UpdateRequest $request
+     * @param Type $type
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(TeamTypeUpdateRequest $request, Team_type $teamType)
+    public function update(UpdateRequest $request, Type $type)
     {
-        $result = $this->teamTypeService->update($request, $teamType);
+        $result = $this->typeService->update($request, $type);
         return response()->json([$result]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param Team_type $teamType
+     * @param Type $type
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
 
-    public function destroy(Team_type $teamType)
+    public function destroy(Type $type)
     {
-        $result = $this->teamTypeService->delete($teamType);
+        $result = $this->typeService->delete($type);
         return response()->json([$result]);
     }
 }

@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->integer('phone')->unique();;
             $table->string('image')->nullable();
-            $table->integer('age');
+            $table->integer('age')->unsigned();
             $table->string('email')->unique();
             $table->boolean('payed')->default(false);
             $table->boolean('status')->default(true);

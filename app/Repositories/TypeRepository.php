@@ -3,9 +3,9 @@
 
 namespace App\Repositories;
 
-use App\Models\Team_type;
+use App\Models\Type;
 
-class TeamTypeRepository extends Repository
+class TypeRepository extends Repository
 {
     protected array $fillable = [
         'name', 'criteria'
@@ -17,7 +17,7 @@ class TeamTypeRepository extends Repository
 
     public function model(): string
     {
-        return Team_type::class;
+        return Type::class;
     }
 
 }

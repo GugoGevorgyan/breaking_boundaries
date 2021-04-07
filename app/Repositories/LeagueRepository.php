@@ -3,12 +3,12 @@
 
 namespace App\Repositories;
 
-use App\Models\Team;
+use App\Models\League;
 
-class TeamRepository extends Repository
+class LeagueRepository extends Repository
 {
     protected array $fillable = [
-        'name', 'club_id', 'type_id', 'city_id','status'
+        'name','year','season_id',
     ];
 
     /**
@@ -16,7 +16,7 @@ class TeamRepository extends Repository
      */
     public function model(): string
     {
-        return Team::class;
+        return League::class;
     }
 
 }

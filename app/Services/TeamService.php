@@ -81,7 +81,17 @@ class TeamService
 
     public function getAllTeam(){
         $teams = $this->teamRepository->get();
-        if(($teams instanceof Collection)){
+
+          return  $teams[3]->league
+//              ->map(function ($league) {
+//              return [
+//                  'name' => $league->name,
+//                  'year' => $league->year,
+//                  'season_id' => $league->season_id,
+//              ];
+//          })
+;
+
             $teamClubUsers = $teams->mapWithKeys(function ($item) {
                 if (!empty($item->club['image'])) {
                     $imagePath = asset('storage/clubs/' . $item->club['image']);
@@ -89,12 +99,19 @@ class TeamService
                     $imagePath = "";
                 }
                 return [$item['name'] => [
-                    'criteria' => $item->team_type['criteria'],
-                    'type-name' => $item->team_type['name'],
+                    'criteria' => $item->teamType['criteria'],
+                    'type-name' => $item->teamType['name'],
                     'city' => $item->city['name'],
                     'club' => $item->club['name'],
                     'club_image' => $imagePath,
                     'status' => $item['status'],
+                            'league' => $item->league->map(function ($league) {
+                                return [
+                                    'name' => $league->name,
+                                    'year' => $league->year,
+                                    'season_id' => $league->season_id,
+                        ];
+                    }),
                     'users' => $item->users->map(function ($team) {
                         return [
                             'name' => $team->name,
@@ -106,9 +123,9 @@ class TeamService
                 ]
                 ];
             });
-            return $teamClubUsers;
-        }
-        return null;
+
+//            return $teamClubUsers;
     }
 
 }
+

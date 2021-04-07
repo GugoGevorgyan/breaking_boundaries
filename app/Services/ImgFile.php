@@ -12,23 +12,26 @@ trait ImgFile
 {
     public function createFile($file, $folder)
     {
+//        $source = uniqid();
+//        $file = base64_decode($file);
+//        $mime = finfo_buffer(finfo_open(), $file, FILEINFO_MIME_TYPE);
+//        list($fileType, $mimeType) = explode('/', $mime, 2);
+//        $path = '/public/'.$folder.'/'.$source.'.'.$mimeType;
+////        dd($fileType);
+////        file_put_contents($path, $file);
+//
+//        return [$source, $mimeType, $fileType, filesize($path)];
 
-        $image_64 = $file; //your base64 encoded data
-
-        $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
-
-        $replace = substr($image_64, 0, strpos($image_64, ',') + 1);
-
-        $image = str_replace($replace, '', $image_64);
-
+       
+        $extension = explode('/', explode(':', substr($file, 0, strpos($file, ';')))[1])[1];   // .jpg .png .pdf
+        $replace = substr($file, 0, strpos($file, ',') + 1);
+        $image = str_replace($replace, '', $file);
         $image = str_replace(' ', '+', $image);
-
         $imageName = Str::random(10) . time() . '.' . $extension;
-
-        Storage::disk('public')->put($imageName, base64_decode($image));
-        Storage::disk('public')->move($imageName, $folder . '/' . $imageName);
+        Storage::disk('public')->put($folder.'/'.$imageName, base64_decode($image));
 
         return $imageName;
+
     }
 
 
@@ -58,5 +61,18 @@ trait ImgFile
         return asset('storage/' . $folder . '/' . $imageName);
     }
 
+
+
+//    public function prepareFile(string $file): array
+//    {
+//        $source = uniqid();
+//        $file = base64_decode($file);
+//        $mime = finfo_buffer(finfo_open(), $file, FILEINFO_MIME_TYPE);
+//        list($fileType, $mimeType) = explode('/', $mime, 2);
+//        $path = sys_get_temp_dir().'/'.$source.'.'.$mimeType;
+//        file_put_contents($path, $file);
+//
+//        return [$source, $mimeType, $fileType, filesize($path)];
+//    }
 
 }

@@ -9,7 +9,6 @@ use App\Http\Requests\Role\UpdateRequest;
 use App\Models\Role;
 use App\Repositories\RoleRepository;
 use App\Repositories\TeamRepository;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
 

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Team_type;
+use App\Models\Type;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class Team_typeSeeder extends Seeder
+class TypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +15,8 @@ class Team_typeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('team_types')->delete();
-        $team_types = [
+        DB::table('types')->delete();
+        $types = [
             [
                 'name' => '5-7',
                 'criteria' => '5-7',
@@ -61,7 +61,7 @@ class Team_typeSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
         ];
-        Team_type::insert($team_types);
+        Type::insert($types);
 
     }
 }

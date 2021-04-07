@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Team_type extends Model
+class Game extends Model
 {
     use HasFactory;
 
     public function teams()
     {
-        return $this->hasMany(Team::class);
+        return $this->belongsToMany(Team::class)->withPivot('points');
     }
+
 }

@@ -9,10 +9,15 @@ use App\Http\Controllers\Admin\SuperAdminController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ClubController;
-use App\Http\Controllers\Admin\TeamTypeController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SeasonController;
+use App\Http\Controllers\Admin\LeagueController;
+use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,15 +38,18 @@ Route::prefix('/user')->middleware('auth:api')->group(function () {
     Route::resource('/', UserController::class);
 });
 
-Route::middleware('auth:api')->group(function (){
-    Route::middleware('admin')->prefix('admin')->group(function (){
+Route::middleware('auth:api')->group(function () {
+    Route::middleware('admin')->prefix('admin')->group(function () {
         Route::resource('/superAdmin', SuperAdminController::class)->middleware('superAdmin');
 //        Route::put('/status/{admin}', [SuperAdminController::class, 'status'])->middleware('superAdmin');
         Route::resource('/city', CityController::class);
         Route::resource('/club', ClubController::class);
-        Route::resource('/team_type', TeamTypeController::class);
+        Route::resource('/type', TypeController::class);
         Route::resource('/team', TeamController::class);
-        Route::resource('/role', TeamController::class);
+        Route::resource('/role', RoleController::class);
+        Route::resource('/season', SeasonController::class);
+        Route::resource('/league', LeagueController::class);
+        Route::resource('/game', GameController::class);
 //        Route::put('team/status/{team}', [TeamController::class, 'status'])->middleware('admin');
     });
 
@@ -52,6 +60,5 @@ Route::middleware('auth:api')->group(function (){
 Route::resource('/mail', MailController::class);
 Route::resource('/login', LoginController::class);
 Route::resource('/register', RegisterController::class);
-
 Route::post('password/forgot', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('passwords.sent');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.reset');
