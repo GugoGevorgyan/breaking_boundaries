@@ -10,6 +10,7 @@ use App\Models\Type;
 use App\Repositories\TypeRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
+use phpDocumentor\Reflection\Types\Collection;
 
 class TypeService
 {
@@ -69,9 +70,19 @@ class TypeService
      * @return \Illuminate\Database\Eloquent\Collection
      */
 
-    public function getTeamType($filters){
+    public function getType($filters)
+    {
         $filters = intval($filters);
-        return $filters ? $this->typeRepository->get($filters): null;
+        return $filters ? $this->typeRepository->get($filters) : null;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     */
+
+    public function allType()
+    {
+        return $this->typeRepository->get();
     }
 
 

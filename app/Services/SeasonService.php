@@ -30,14 +30,23 @@ class SeasonService
     }
 
     /**
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|Collection|Model|null
      */
 
-    public function allSeason():Collection
+    public function allSeason()
     {
         return $this->seasonRepository->get();
     }
 
+    /**
+     * @param $filters
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|Collection|Model|null
+     */
+
+    public function getSeason($filters){
+        $filters = intval($filters);
+        return $filters ? $this->seasonRepository->get($filters): null;
+    }
 
     /**
      * @param CreateRequest $request

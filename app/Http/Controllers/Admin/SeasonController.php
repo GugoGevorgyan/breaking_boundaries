@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Season\CreateRequest;
 use App\Http\Requests\Season\UpdateRequest;
+use App\Http\Resources\SeasonResource;
 use App\Models\Season;
+use App\Response\APIResponse;
 use App\Services\SeasonService;
 use Illuminate\Http\Request;
 
@@ -30,11 +32,11 @@ class SeasonController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        //
+        return APIResponse::successResponse(SeasonResource::collection($this->seasonService->allSeason()));
     }
 
     /**
@@ -55,30 +57,29 @@ class SeasonController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $result = $this->seasonService->create($request);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new SeasonResource($this->seasonService->create($request)));
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Season  $season
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Season $season)
     {
-        //
+        return APIResponse::successResponse(new SeasonResource($this->seasonService->getSeason($season->id)));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Season  $season
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function edit(Season $season)
     {
-        //
+        return APIResponse::successResponse(new SeasonResource($this->seasonService->getSeason($season->id)));
     }
 
     /**
@@ -90,8 +91,8 @@ class SeasonController extends Controller
      */
     public function update(UpdateRequest $request, Season $season)
     {
-        $result = $this->seasonService->update($request, $season);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new SeasonResource($this->seasonService->update($request, $season)));
+
     }
 
     /**
@@ -102,7 +103,6 @@ class SeasonController extends Controller
      */
     public function destroy(Season $season)
     {
-        $result = $this->seasonService->delete($season);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new SeasonResource($this->seasonService->delete($season)));
     }
 }

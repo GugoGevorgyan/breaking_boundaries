@@ -30,10 +30,10 @@ class GameService
     }
 
     /**
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|Collection|Model|null
      */
 
-    public function allGame(): Collection
+    public function allGame()
     {
         return $this->gameRepository->get();
     }

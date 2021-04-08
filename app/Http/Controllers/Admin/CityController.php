@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\City\CreateRequest;
 use App\Http\Requests\City\UpdateRequest;
+use App\Http\Resources\CityResource;
 use App\Models\City;
+use App\Response\APIResponse;
 use App\Services\CityService;
 
 class CityController extends Controller
@@ -31,9 +33,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        $result = $this->cityService->allCity();
-        return response()->json([$result]);
-
+        return APIResponse::successResponse(CityResource::collection($this->cityService->allCity()));
     }
 
     /**
@@ -54,19 +54,19 @@ class CityController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $result = $this->cityService->create($request);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new CityResource($this->cityService->create($request)));
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param City $city
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(City $city)
     {
-        //
+        return APIResponse::successResponse(new CityResource($this->cityService->getCity($city->id)));
     }
 
     /**
@@ -77,8 +77,8 @@ class CityController extends Controller
      */
     public function edit(City $city)
     {
-        $result = $this->cityService->getCity($city->id);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new CityResource($this->cityService->getCity($city->id)));
+
     }
 
     /**
@@ -90,8 +90,7 @@ class CityController extends Controller
      */
     public function update(UpdateRequest $request, City $city)
     {
-        $result = $this->cityService->update($request, $city);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new CityResource($this->cityService->update($request, $city)));
     }
 
     /**
@@ -103,7 +102,6 @@ class CityController extends Controller
      */
     public function destroy(City $city)
     {
-        $result = $this->cityService->delete($city);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new CityResource($this->cityService->delete($city)));
     }
 }

@@ -80,9 +80,7 @@ class TeamService
      */
 
     public function getAllTeam(){
-        $teams = $this->teamRepository->get();
-
-          return  $teams[3]->league
+        return $this->teamRepository->get();
 //              ->map(function ($league) {
 //              return [
 //                  'name' => $league->name,
@@ -90,39 +88,39 @@ class TeamService
 //                  'season_id' => $league->season_id,
 //              ];
 //          })
-;
+//;
 
-            $teamClubUsers = $teams->mapWithKeys(function ($item) {
-                if (!empty($item->club['image'])) {
-                    $imagePath = asset('storage/clubs/' . $item->club['image']);
-                } else {
-                    $imagePath = "";
-                }
-                return [$item['name'] => [
-                    'criteria' => $item->teamType['criteria'],
-                    'type-name' => $item->teamType['name'],
-                    'city' => $item->city['name'],
-                    'club' => $item->club['name'],
-                    'club_image' => $imagePath,
-                    'status' => $item['status'],
-                            'league' => $item->league->map(function ($league) {
-                                return [
-                                    'name' => $league->name,
-                                    'year' => $league->year,
-                                    'season_id' => $league->season_id,
-                        ];
-                    }),
-                    'users' => $item->users->map(function ($team) {
-                        return [
-                            'name' => $team->name,
-                            'email' => $team->email,
-                            'phone' => $team->phone,
-                            'status' => $team->status,
-                        ];
-                    })
-                ]
-                ];
-            });
+//            $teamClubUsers = $teams->mapWithKeys(function ($item) {
+//                if (!empty($item->club['image'])) {
+//                    $imagePath = asset('storage/clubs/' . $item->club['image']);
+//                } else {
+//                    $imagePath = "";
+//                }
+//                return [$item['name'] => [
+//                    'criteria' => $item->teamType['criteria'],
+//                    'type-name' => $item->teamType['name'],
+//                    'city' => $item->city['name'],
+//                    'club' => $item->club['name'],
+//                    'club_image' => $imagePath,
+//                    'status' => $item['status'],
+//                            'league' => $item->league->map(function ($league) {
+//                                return [
+//                                    'name' => $league->name,
+//                                    'year' => $league->year,
+//                                    'season_id' => $league->season_id,
+//                        ];
+//                    }),
+//                    'users' => $item->users->map(function ($team) {
+//                        return [
+//                            'name' => $team->name,
+//                            'email' => $team->email,
+//                            'phone' => $team->phone,
+//                            'status' => $team->status,
+//                        ];
+//                    })
+//                ]
+//                ];
+//            });
 
 //            return $teamClubUsers;
     }

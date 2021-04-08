@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Team\UpdateRequest;
 use App\Http\Requests\Team\TeamRequest;
+use App\Http\Resources\TeamResource;
 use App\Models\Team;
+use App\Response\APIResponse;
 use App\Services\TeamService;
 
 class TeamController extends Controller
@@ -29,9 +31,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $result = $this->teamService->getAllTeam();
-        return response()->json([$result]);
-
+        return APIResponse::successResponse(TeamResource::collection($this->teamService->getAllTeam()));
     }
 
     /**
@@ -52,19 +52,18 @@ class TeamController extends Controller
      */
     public function store(TeamRequest $request)
     {
-        $result = $this->teamService->create($request);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new TeamResource($this->teamService->create($request)));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Team $team
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Team $team)
     {
-        //
+        return APIResponse::successResponse(new TeamResource($this->teamService->getTeam($team->id)));
     }
 
     /**
@@ -76,8 +75,7 @@ class TeamController extends Controller
 
     public function edit(Team $team)
     {
-        $result = $this->teamService->getTeam($team->id);
-        return response()->json($result);
+        return APIResponse::successResponse(new TeamResource($this->teamService->getTeam($team->id)));
     }
 
     /**
@@ -89,8 +87,7 @@ class TeamController extends Controller
      */
     public function update(UpdateRequest $request, Team $team)
     {
-        $result = $this->teamService->update($request, $team);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new TeamResource($this->teamService->update($request, $team)));
     }
 
     /**
@@ -103,8 +100,7 @@ class TeamController extends Controller
 
     public function destroy(Team $team)
     {
-        $result = $this->teamService->delete($team);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new TeamResource($this->teamService->delete($team)));
     }
 
 }

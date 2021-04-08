@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Type\CreateRequest;
 use App\Http\Requests\Type\UpdateRequest;
+use App\Http\Resources\TypeResource;
 use App\Models\Type;
+use App\Response\APIResponse;
 use App\Services\TypeService;
 
 class TypeController extends Controller
@@ -31,8 +33,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $type = Type::all();
-        return response()->json($type);
+        return APIResponse::successResponse(TypeResource::collection($this->typeService->allType()));
     }
 
     /**
@@ -53,20 +54,20 @@ class TypeController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $result = $this->typeService->create($request);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new TypeResource($this->typeService->create($request)));
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Type $type
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Type $type)
     {
-        //
+        return APIResponse::successResponse(new TypeResource($this->typeService->getType($type->id)));
+
     }
 
     /**
@@ -78,8 +79,8 @@ class TypeController extends Controller
 
     public function edit(Type $type)
     {
-        $result = $this->typeService->getTeamType($type->id);
-        return response()->json($result);
+        return APIResponse::successResponse(new TypeResource($this->typeService->getType($type->id)));
+
     }
 
     /**
@@ -91,8 +92,8 @@ class TypeController extends Controller
      */
     public function update(UpdateRequest $request, Type $type)
     {
-        $result = $this->typeService->update($request, $type);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new TypeResource($this->typeService->update($request, $type)));
+
     }
 
     /**
@@ -105,7 +106,9 @@ class TypeController extends Controller
 
     public function destroy(Type $type)
     {
-        $result = $this->typeService->delete($type);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new TypeResource($this->typeService->delete($type)));
+//        $result = $this->typeService->delete($type);
+//        return new TypeResource($result);
     }
+
 }

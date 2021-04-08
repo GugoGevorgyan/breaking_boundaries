@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Gate;
 
 class ClubService
 {
-    use ImgFile,ValidatesRequests;
+    use ImgFile, ValidatesRequests;
 
     /**]
      * @var ClubRepository
@@ -33,10 +33,10 @@ class ClubService
     }
 
     /**
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|Collection|Model|null
      */
 
-    public function allClub(): Collection
+    public function allClub()
     {
         return $this->clubRepository->get();
     }
@@ -62,11 +62,8 @@ class ClubService
         if (!empty($request->image)) {
             $file = $this->createFile($request->image, 'clubs');
         }
-
         $data = ['name' => $request->name, 'image' => $file];
-        $result = $this->clubRepository->create($data);
-        $result->image = !empty($result->image) ? asset('storage/clubs/' . $result->image) : null;
-        return $result;
+        return $this->clubRepository->create($data);
     }
 
     /**
@@ -94,10 +91,7 @@ class ClubService
 
     public function delete(Club $club)
     {
-        if (Gate::allows('isAdmin')) {
-            return $this->clubRepository->delete($club);
-        }
-        return false;
+        return $this->clubRepository->delete($club);
     }
 
 }

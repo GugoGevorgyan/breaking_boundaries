@@ -31,23 +31,23 @@ class APIResponse
         ], $status);
     }
 
-//    /**
-//     * @param $response
-//     * @param string $message
-//     * @param int $status
-//     * @return JsonResponse
-//     */
-//    public static function collectionResponse(
-//        $response = [],
-//        string $message = 'Successful request.',
-//        int $status = Response::HTTP_OK
-//    ): JsonResponse {
-//        return response()->json([
-//            'message' => $message,
-//            'data' => $response->resource,
-//            'pagination' => $response->pagination,
-//        ], $status);
-//    }
+    /**
+     * @param $response
+     * @param string $message
+     * @param int $status
+     * @return JsonResponse
+     */
+    public static function collectionResponse(
+        $response = [],
+        string $message = 'Successful request.',
+        int $status = Response::HTTP_OK
+    ): JsonResponse {
+        return response()->json([
+            'message' => $message,
+            'data' => $response->resource,
+            'pagination' => $response->pagination,
+        ], $status);
+    }
 
     /**
      * @param array $response

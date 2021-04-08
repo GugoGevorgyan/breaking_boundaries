@@ -34,6 +34,25 @@ class SuperAdminService
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     */
+    public function getAllUser()
+    {
+        return $this->superAdminService->get();
+    }
+
+    /**
+     * @param $filters
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     */
+
+    public function getUser($filters)
+    {
+        $filters = intval($filters);
+        return $filters ? $this->superAdminService->get($filters) : null;
+    }
+
+    /**
      * @param RegisterRequest $request
      * @return Model|mixed
      */

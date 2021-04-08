@@ -30,12 +30,17 @@ class LeagueService
     }
 
     /**
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|Collection|Model|null
      */
 
-    public function allSeason():Collection
+    public function allLeague()
     {
         return $this->leagueRepository->get();
+    }
+
+    public function getLeague($filters){
+        $filters = intval($filters);
+        return $filters ? $this->leagueRepository->get($filters): null;
     }
 
 

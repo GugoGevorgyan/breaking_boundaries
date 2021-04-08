@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Role\CreateRequest;
 use App\Http\Requests\Role\UpdateRequest;
+use App\Http\Resources\RoleResource;
 use App\Models\Role;
+use App\Response\APIResponse;
 use App\Services\RoleService;
 use Illuminate\Http\Request;
 
@@ -28,11 +30,11 @@ class RoleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        //
+        return APIResponse::successResponse(RoleResource::collection($this->roleService->allRole()));
     }
 
     /**
@@ -54,31 +56,29 @@ class RoleController extends Controller
 
     public function store(CreateRequest $request)
     {
-        $result = $this->roleService->create($request);
-        return response()->json([$result]);
-
+        return APIResponse::successResponse(new RoleResource($this->roleService->create($request)));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Role $role
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Role $role)
     {
-        //
+        return APIResponse::successResponse(new RoleResource($this->roleService->getRole($role->id)));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Role $role
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        //
+        return APIResponse::successResponse(new RoleResource($this->roleService->getRole($role->id)));
     }
 
     /**
@@ -91,8 +91,7 @@ class RoleController extends Controller
 
     public function update(UpdateRequest $request, Role $role)
     {
-        $result = $this->roleService->update($request,$role);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new RoleResource($this->roleService->update($request,$role)));
     }
 
     /**
@@ -104,7 +103,6 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        $result = $this->roleService->delete($role);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new RoleResource($this->roleService->delete($role)));
     }
 }

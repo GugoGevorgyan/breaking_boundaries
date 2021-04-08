@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UpdateRequest;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Resources\AdminResource;
 use App\Mail\Breaking_boundaries;
 use App\Models\User;
+use App\Response\APIResponse;
 use App\Services\SuperAdminService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -29,6 +32,7 @@ class SuperAdminController extends Controller
     {
         $this->superAdminService = $superAdminService;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +40,7 @@ class SuperAdminController extends Controller
      */
     public function index()
     {
-        //
+        return APIResponse::successResponse(AdminResource::collection($this->superAdminService->getAllUser()));
     }
 
     /**
@@ -58,20 +62,18 @@ class SuperAdminController extends Controller
 
     public function store(RegisterRequest $request)
     {
-        $result = $this->superAdminService->create($request);
-        return response()->json([$result]);
-
+        return APIResponse::successResponse(new AdminResource($this->superAdminService->create($request)));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(user $user)
     {
-        //
+        return APIResponse::successResponse(new AdminResource($this->superAdminService->getUser($user ->id)));
     }
 
     /**
@@ -88,15 +90,16 @@ class SuperAdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdateRequest $request
      * @param User $admin
      * @return \Illuminate\Http\JsonResponse
      */
 
-    public function update(Request $request, User $admin)
+    public function update(UpdateRequest $request, User $admin)
     {
-        $result = $this->superAdminService->update($request, $admin);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new AdminResource($this->superAdminService->update($request, $admin)));
+//        $result = $this->superAdminService->update($request, $admin);
+//        return response()->json([$result]);
     }
 
     /**

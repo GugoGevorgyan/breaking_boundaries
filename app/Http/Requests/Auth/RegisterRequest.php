@@ -29,6 +29,7 @@ class RegisterRequest extends FormRequest
             'password' => 'required|string|min:6|confirmed',
             'age' => 'required|digits_between:1,2',
             'phone' => 'required|digits_between:8,12|unique:users',
+            'team_id'=>'required',
         ];
     }
 

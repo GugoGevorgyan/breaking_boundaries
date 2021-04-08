@@ -30,6 +30,25 @@ class RoleService
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     */
+
+    public function allRole()
+    {
+        return $this->roleRepository->get();
+    }
+
+    /**
+     * @param $filters
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     */
+
+    public function getRole($filters){
+        $filters = intval($filters);
+        return $filters ? $this->roleRepository->get($filters): null;
+    }
+
+    /**
      * @param CreateRequest $request
      * @return Model|mixed
      */
@@ -58,7 +77,7 @@ class RoleService
 
     public function delete(Role $role)
     {
-        if (Gate::allows('isSuperAdmin')) {
+        if (Gate::allows('isSuperAdmin'&& $role->id !== '1')) {
             return $this->roleRepository->delete($role);
         }
         return false;

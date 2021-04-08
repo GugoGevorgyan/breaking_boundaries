@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Club\CreateRequest;
 use App\Http\Requests\Club\UpdateRequest;
+use App\Http\Resources\ClubResource;
 use App\Models\Club;
+use App\Response\APIResponse;
 use App\Services\ClubService;
 
 class ClubController extends Controller
@@ -33,8 +35,7 @@ class ClubController extends Controller
      */
     public function index()
     {
-        $result = $this->clubService->allClub();
-        return response()->json([$result]);
+        return APIResponse::successResponse(ClubResource::collection($this->clubService->allClub()));
     }
 
     /**
@@ -55,19 +56,20 @@ class ClubController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $result = $this->clubService->create($request);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new ClubResource($this->clubService->create($request)));
+//        $result = $this->clubService->create($request);
+//        return new ClubResource($result);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Club $club
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Club $club)
     {
-        //
+        return APIResponse::successResponse(new ClubResource($this->clubService->getClub($club->id)));
     }
 
     /**
@@ -79,9 +81,7 @@ class ClubController extends Controller
 
     public function edit(Club $club)
     {
-        $result = $this->clubService->getClub($club->id);
-        $result->image = asset('storage/clubs/'.$result->image);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new ClubResource($this->clubService->getClub($club->id)));
     }
 
     /**
@@ -93,8 +93,7 @@ class ClubController extends Controller
      */
     public function update(UpdateRequest $request, Club $club)
     {
-        $result = $this->clubService->update($request,$club);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new ClubResource($this->clubService->update($request,$club)));
 
     }
 
@@ -107,7 +106,6 @@ class ClubController extends Controller
      */
     public function destroy(Club $club)
     {
-        $result = $this->clubService->delete($club);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new ClubResource($this->clubService->delete($club)));
     }
 }

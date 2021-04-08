@@ -30,10 +30,10 @@ class CityService
     }
 
     /**
-     * @return Collection
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|Collection|Model|null
      */
 
-    public function allCity():Collection
+    public function allCity()
     {
         return $this->cityRepository->get();
     }

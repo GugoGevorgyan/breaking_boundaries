@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Game\UpdateRequest;
 use App\Http\Requests\Game\CreateRequest;
+use App\Http\Resources\GameResource;
 use App\Models\Game;
+use App\Response\APIResponse;
 use App\Services\GameService;
 use Illuminate\Http\Request;
 
@@ -32,8 +34,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $result = $this->gameService->allGame();
-        return response()->json([$result]);
+        return APIResponse::successResponse(GameResource::collection($this->gameService->allGame()));
     }
 
     /**
@@ -54,19 +55,18 @@ class GameController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $result = $this->gameService->create($request);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new GameResource($this->gameService->create($request)));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Game $game
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Game $game)
     {
-        //
+        return APIResponse::successResponse(new GameResource($this->gameService->getGame($game->id)));
     }
 
     /**
@@ -77,8 +77,7 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
-        $result = $this->gameService->getGame($game->id);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new GameResource($this->gameService->getGame($game->id)));
     }
 
     /**
@@ -90,8 +89,7 @@ class GameController extends Controller
      */
     public function update(UpdateRequest $request, Game $game)
     {
-        $result = $this->gameService->update($request, $game);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new GameResource($this->gameService->update($request, $game)));
     }
 
     /**
@@ -103,7 +101,6 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        $result = $this->gameService->delete($game);
-        return response()->json([$result]);
+        return APIResponse::successResponse(new GameResource($this->gameService->delete($game)));
     }
 }
