@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class EmailRequest extends FormRequest
 {
+    /**
+     * @var mixed
+     */
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,19 +28,9 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:4',
-            'email' => 'sometimes|required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required|string|min:6|confirmed',
-            'age' => 'required|digits_between:1,2',
-            'phone' => 'required|digits_between:8,12|unique:users',
-//            'team_id'=>'required',
+            'remember_token' => 'required|string',
         ];
     }
-
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-
 }

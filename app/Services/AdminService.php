@@ -79,8 +79,7 @@ class AdminService
 
             return $this->adminRepository->delete($admin);
         }
-
-        return false;
+        throw new \InvalidArgumentException('Something went wrong');
     }
 
 }

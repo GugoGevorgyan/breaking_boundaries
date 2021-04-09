@@ -67,7 +67,6 @@ class TypeController extends Controller
     public function show(Type $type)
     {
         return APIResponse::successResponse(new TypeResource($this->typeService->getType($type->id)));
-
     }
 
     /**

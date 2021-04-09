@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Exceptions\EmailException;
 use App\Http\Requests\Admin\UpdateRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Mail\Breaking_boundaries;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpFoundation\Response;
 
 class SuperAdminService
 {
@@ -59,7 +61,6 @@ class SuperAdminService
 
     public function create(RegisterRequest $request)
     {
-        if (Gate::allows('isSuperAdmin')) {
             $code = Str::random(10) . time();
             $toEmail = $this->send($code, $request['email'], $request['password']);
             if ($toEmail === "ok") {
@@ -70,9 +71,8 @@ class SuperAdminService
                 $admin['remember_token'] = $code;
                 return $this->superAdminService->create($admin);
             }
-            return response()->json(['error' => $toEmail->getMessage()]);
-        }
-        return response()->json(['error' => 'oops, something went wrong, no SuperAdmin']);
+            throw new EmailException($toEmail->getMessage(),Response::HTTP_NOT_EXTENDED);
+
     }
 
     /**
@@ -97,7 +97,6 @@ class SuperAdminService
     public function delete(User $admin)
     {
         if (Gate::allows('isSuperAdmin') && $admin->id !== '1') {
-
             return $this->superAdminService->delete($admin);
         }
 

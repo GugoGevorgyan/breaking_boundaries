@@ -2,120 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Requests\Admin\EmailRequest;
+use App\Http\Resources\LoginResource;
 use App\Models\User;
-use http\Env\Response;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use App\Response\APIResponse;
+use App\Services\AdminEmailService;
+
 
 class MailController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @var AdminEmailService $adminEmailService
      */
-    public function index()
-    {
-        //
-    }
+    private AdminEmailService $adminEmailService;
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * AdminController constructor.
+     * @param AdminEmailService $adminEmailService
      */
-    public function create()
+    public function __construct(AdminEmailService $adminEmailService)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  $code
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function show($code)
-    {
-        $user = User::where('remember_token', $code)->first();
-        if ($user){
-            $user_id = User::where('remember_token', $code)->first()->id;
-
-            //tanel password confirmi dasht;
-            return response()->json(['$user_id' => $user_id]);
-        }
-        abort(403, 'Unauthorized action.');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $this->adminEmailService = $adminEmailService;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param EmailRequest $request
+     * //     * @param User $user
+     * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(EmailRequest $request)
     {
-        $user = User::find($id);
-        if($user->role->name === "admin") {
-            $adminData = [
-                'email' => $user->email,
-                'password'=> $request->password,
-            ];
-            if (!auth()->attempt($adminData)) {
-                return response()->json(['message' => 'Invalid Credentials'], 401);
-            }
-            $rules = [
-                'password_new' => 'required|string|min:4|same:password_confirmation',
-            ];
-            $this->validate($request, $rules);
-
-            $user -> update([
-                'password' => Hash::make($request->password_new),
-                'status' => 1,
-                'email_verified_at' => now(),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ]);
-            $login = new LoginController();
-            $userToken = $login->store($request);
-            return $userToken;
-        }
-
-        return response()->json(['message' => 'Invalid Credentials']);
+        return APIResponse::successResponse(new LoginResource($this->adminEmailService->update($request)));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
 }
