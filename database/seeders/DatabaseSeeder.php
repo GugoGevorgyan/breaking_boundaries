@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             ClubSeeder::class,
             CitySeeder::class,
             TypeSeeder::class,
-            TeamSeeder::class,
+//            TeamSeeder::class,
             SeasonSeeder::class,
             LeagueSeeder::class,
             GameSeeder::class,

@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Team;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -16,6 +18,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
+
         DB::table('users')->insert(array (
             0 =>
                 [
@@ -31,5 +34,6 @@ class UserSeeder extends Seeder
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
         ));
+
     }
 }

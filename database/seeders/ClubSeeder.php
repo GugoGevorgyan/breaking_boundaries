@@ -17,24 +17,28 @@ class ClubSeeder extends Seeder
     {
         DB::table('clubs')->delete();
 
-            $clubs = [
-                [
-                    'name' => 'Sonics',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ],
+        Club::factory()
+            ->count(10)
+            ->create();
 
-                [
-                    'name' => 'Hoop it up',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ],
-                [
-                    'name' => 'Sizzle',
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ]
-            ];
-            Club::insert($clubs);
+//            $clubs = [
+//                [
+//                    'name' => 'Sonics',
+//                    'created_at' => date('Y-m-d H:i:s'),
+//                    'updated_at' => date('Y-m-d H:i:s'),
+//                ],
+//
+//                [
+//                    'name' => 'Hoop it up',
+//                    'created_at' => date('Y-m-d H:i:s'),
+//                    'updated_at' => date('Y-m-d H:i:s'),
+//                ],
+//                [
+//                    'name' => 'Sizzle',
+//                    'created_at' => date('Y-m-d H:i:s'),
+//                    'updated_at' => date('Y-m-d H:i:s'),
+//                ]
+//            ];
+//            Club::insert($clubs);
         }
 }

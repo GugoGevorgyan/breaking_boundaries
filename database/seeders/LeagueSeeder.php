@@ -17,24 +17,28 @@ class LeagueSeeder extends Seeder
     {
         DB::table('leagues')->delete();
 
-        $league = [
-            [
-                'name' => 'Europa',
-                'year' => '2015',
-                'season_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
+        League::factory()
+            ->count(6)
+            ->create();
+//        $league = [
+//            [
+//                'name' => 'Europa',
+//                'year' => '2015',
+//                'season_id' => 1,
+//                'created_at' => date('Y-m-d H:i:s'),
+//                'updated_at' => date('Y-m-d H:i:s'),
+//            ],
+//
+//            [
+//                'name' => 'uefa',
+//                'year' => '2015',
+//                'season_id' => 2,
+//                'created_at' => date('Y-m-d H:i:s'),
+//                'updated_at' => date('Y-m-d H:i:s'),
+//            ],
+//
+//        ];
+//        League::insert($league);
 
-            [
-                'name' => 'uefa',
-                'year' => '2015',
-                'season_id' => 2,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-
-        ];
-        League::insert($league);
     }
 }

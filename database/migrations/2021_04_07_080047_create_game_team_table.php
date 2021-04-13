@@ -23,7 +23,7 @@ class CreateGameTeamTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->integer('points')->unsigned()->nullable();
+            $table->integer('score')->unsigned()->nullable();
             $table->timestamps();
         });
     }
