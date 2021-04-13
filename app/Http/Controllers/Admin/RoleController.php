@@ -9,7 +9,6 @@ use App\Http\Resources\RoleResource;
 use App\Models\Role;
 use App\Response\APIResponse;
 use App\Services\RoleService;
-use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
@@ -32,6 +31,7 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
     public function index()
     {
         return APIResponse::successResponse(RoleResource::collection($this->roleService->allRole()));

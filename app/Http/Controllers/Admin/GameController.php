@@ -9,7 +9,6 @@ use App\Http\Resources\GameResource;
 use App\Models\Game;
 use App\Response\APIResponse;
 use App\Services\GameService;
-use Illuminate\Http\Request;
 
 class GameController extends Controller
 {

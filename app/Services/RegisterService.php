@@ -4,6 +4,7 @@
 namespace App\Services;
 
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Models\Team;
 use App\Repositories\USerRepository;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,14 +26,13 @@ class RegisterService
     }
 
     public function register(RegisterRequest $request){
-        $user = $request->only('name', 'email', 'age', 'phone', 'password');
+        $user = $request->only('name', 'email', 'age', 'phone','password','team_id');
 
         $user['password'] = Hash::make($user['password']);
-        $user['status'] = 1;
-
+        $user['status'] = 0;
+        $team =  Team::findOrFail($request->team_id);
         $result = $this->registerRepository->create($user);
-        $result->team()->attach($request->team_id);
-
+        $result->team()->attach($team->id);
         return LoginService::login($request);
     }
 }

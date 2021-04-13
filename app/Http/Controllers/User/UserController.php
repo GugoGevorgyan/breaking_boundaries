@@ -36,7 +36,7 @@ class UserController extends Controller
      */
     public function store(User $request)
     {
-        return $request->all();
+        //
     }
 
     /**

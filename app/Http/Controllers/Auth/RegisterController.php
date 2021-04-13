@@ -7,7 +7,6 @@ use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Resources\RegisterResource;
 use App\Response\APIResponse;
 use App\Services\RegisterService;
-use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {

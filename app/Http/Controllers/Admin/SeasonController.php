@@ -9,7 +9,6 @@ use App\Http\Resources\SeasonResource;
 use App\Models\Season;
 use App\Response\APIResponse;
 use App\Services\SeasonService;
-use Illuminate\Http\Request;
 
 class SeasonController extends Controller
 {

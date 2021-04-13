@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Response\APIResponse;
 use App\Services\AdminEmailService;
 
-
 class MailController extends Controller
 {
     /**

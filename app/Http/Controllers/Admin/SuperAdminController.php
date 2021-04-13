@@ -6,15 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UpdateRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Resources\AdminResource;
-use App\Mail\Breaking_boundaries;
 use App\Models\User;
 use App\Response\APIResponse;
 use App\Services\SuperAdminService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
 
 class SuperAdminController extends Controller
 {
