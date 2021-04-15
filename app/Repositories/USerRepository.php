@@ -8,7 +8,7 @@ use App\Models\User;
 class USerRepository extends Repository
 {
     protected array $fillable = [
-        'name', 'email', 'age', 'phone','status','role_id','password','email_verified_at','image','remember_token',
+        'name', 'email', 'age', 'phone','role_id','password','email_verified_at','image','remember_token',
     ];
 
     /**

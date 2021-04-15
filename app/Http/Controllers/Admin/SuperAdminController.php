@@ -52,6 +52,7 @@ class SuperAdminController extends Controller
      *
      * @param RegisterRequest $request
      * @return \Illuminate\Http\JsonResponse
+     * @throws \App\Exceptions\EmailException
      */
 
     public function store(RegisterRequest $request)
@@ -92,8 +93,6 @@ class SuperAdminController extends Controller
     public function update(UpdateRequest $request, User $admin)
     {
         return APIResponse::successResponse(new AdminResource($this->superAdminService->update($request, $admin)));
-//        $result = $this->superAdminService->update($request, $admin);
-//        return response()->json([$result]);
     }
 
     /**

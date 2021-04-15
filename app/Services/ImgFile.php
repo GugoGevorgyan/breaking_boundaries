@@ -12,6 +12,7 @@ trait ImgFile
 {
     public function createFile($file, $folder)
     {
+
 //        $source = uniqid();
 //        $file = base64_decode($file);
 //        $mime = finfo_buffer(finfo_open(), $file, FILEINFO_MIME_TYPE);
@@ -22,8 +23,8 @@ trait ImgFile
 //
 //        return [$source, $mimeType, $fileType, filesize($path)];
 
-       
         $extension = explode('/', explode(':', substr($file, 0, strpos($file, ';')))[1])[1];   // .jpg .png .pdf
+
         $replace = substr($file, 0, strpos($file, ',') + 1);
         $image = str_replace($replace, '', $file);
         $image = str_replace(' ', '+', $image);
@@ -44,6 +45,7 @@ trait ImgFile
     public function updateFile($file, Model $model , $folder)
     {
         $image_path = public_path("\storage\\".$folder."\\") .$model->image;
+
         if(File::exists($image_path)) {
             File::delete($image_path);
         }

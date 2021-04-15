@@ -20,25 +20,5 @@ class ClubSeeder extends Seeder
         Club::factory()
             ->count(10)
             ->create();
-
-//            $clubs = [
-//                [
-//                    'name' => 'Sonics',
-//                    'created_at' => date('Y-m-d H:i:s'),
-//                    'updated_at' => date('Y-m-d H:i:s'),
-//                ],
-//
-//                [
-//                    'name' => 'Hoop it up',
-//                    'created_at' => date('Y-m-d H:i:s'),
-//                    'updated_at' => date('Y-m-d H:i:s'),
-//                ],
-//                [
-//                    'name' => 'Sizzle',
-//                    'created_at' => date('Y-m-d H:i:s'),
-//                    'updated_at' => date('Y-m-d H:i:s'),
-//                ]
-//            ];
-//            Club::insert($clubs);
         }
 }

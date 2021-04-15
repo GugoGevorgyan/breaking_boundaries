@@ -9,8 +9,8 @@ use Illuminate\Queue\SerializesModels;
 
 class Breaking_boundaries extends Mailable
 {
-    use Queueable, SerializesModels;
 
+    use Queueable, SerializesModels;
 
     public $feedback;
     public $password;

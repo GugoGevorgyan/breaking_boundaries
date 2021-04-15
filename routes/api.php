@@ -46,6 +46,7 @@ Route::middleware('auth:api')->group(function () {
         Route::resource('/game', GameController::class);
     });
     Route::resource('/admin', AdminController::class)->middleware('admin');
+    Route::resource('/user', UserController::class);
 });
 
 

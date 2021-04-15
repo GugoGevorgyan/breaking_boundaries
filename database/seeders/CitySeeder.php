@@ -19,30 +19,5 @@ class CitySeeder extends Seeder
         City::factory()
             ->count(8)
             ->create();
-//        $cities = [
-//            [
-//                'name' => 'italy',
-//                'created_at' => date('Y-m-d H:i:s'),
-//                'updated_at' => date('Y-m-d H:i:s'),
-//            ],
-//
-//            [
-//                'name' => 'london',
-//                'created_at' => date('Y-m-d H:i:s'),
-//                'updated_at' => date('Y-m-d H:i:s'),
-//            ],
-//            [
-//                'name' => 'Spain',
-//                'created_at' => date('Y-m-d H:i:s'),
-//                'updated_at' => date('Y-m-d H:i:s'),
-//            ],
-//            [
-//                'name' => 'Paris',
-//                'created_at' => date('Y-m-d H:i:s'),
-//                'updated_at' => date('Y-m-d H:i:s'),
-//            ]
-//        ];
-//        City::insert($cities);
-
     }
 }

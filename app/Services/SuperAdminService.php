@@ -114,7 +114,7 @@ class SuperAdminService
     public function send($code, $email, $password)
     {
         try {
-            Mail::to($email)->send(new Breaking_boundaries($code, $password));
+            Mail::to($email)->send(new Breaking_boundaries($code, $password,$email));
         } catch (\Exception $err) {
             return $err;
         }
