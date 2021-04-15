@@ -6,7 +6,12 @@ namespace App\Services;
 
 use App\Exceptions\LoginException;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Response\APIResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginService
 {

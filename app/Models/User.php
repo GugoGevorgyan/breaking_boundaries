@@ -37,6 +37,13 @@ class User extends Authenticatable
 //        protected $with = [
 //        'role'
 //    ];
+    public static function firstOrCreate(array $array)
+    {
+    }
+
+    public static function where(string $string, $email)
+    {
+    }
 
     public function role()
     {

@@ -55,3 +55,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('password/forgot', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('passwords.sent');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.reset');
+
+
+Route::get('/login/{website}', [RegisterController::class,'socialites']);
+Route::get('/login/{website}/callback', [RegisterController::class,'socialiteCallback']);

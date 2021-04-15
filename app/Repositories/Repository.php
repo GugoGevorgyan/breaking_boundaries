@@ -189,6 +189,7 @@ abstract class Repository
      * @param $foreInPivotKey
      * @param array $request
      */
+
     public function updatePivot(Model $model,$relation,$foreInPivotKey,array $request){
        $model->$relation()->updateExistingPivot($foreInPivotKey, $request);
     }
