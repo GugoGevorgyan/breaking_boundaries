@@ -6,7 +6,7 @@ namespace App\Services;
 use App\Exceptions\LoginException;
 use App\Models\Team;
 use App\Models\User;
-use App\Repositories\USerRepository;
+use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -15,16 +15,16 @@ use Laravel\Socialite\Facades\Socialite;
 class RegisterService
 {
     /**
-     * @var USerRepository
+     * @var UserRepository
      */
     protected $registerRepository;
 
     /**
      * TeamService constructor.
-     * @param USerRepository $registerRepository
+     * @param UserRepository $registerRepository
      */
 
-    public function __construct(USerRepository $registerRepository)
+    public function __construct(UserRepository $registerRepository)
     {
         $this->registerRepository = $registerRepository;
     }

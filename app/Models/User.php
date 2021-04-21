@@ -37,13 +37,6 @@ class User extends Authenticatable
 //        protected $with = [
 //        'role'
 //    ];
-    public static function firstOrCreate(array $array)
-    {
-    }
-
-    public static function where(string $string, $email)
-    {
-    }
 
     public function role()
     {
@@ -55,7 +48,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Team::class);
     }
 
-    public function sendPasswordResetNotification($token)
+    public function sendPasswordResetNotification($token): void
     {
         $this->notify(new PasswordResetNotification($token));
     }

@@ -30,9 +30,9 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 |
 */
 
-Route::prefix('/user')->middleware('auth:api')->group(function () {
-    Route::resource('/', UserController::class);
-});
+//Route::prefix('/user')->middleware('auth:api')->group(function () {
+//    Route::resource('/', UserController::class);
+//});
 Route::middleware('auth:api')->group(function () {
     Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::resource('/superAdmin', SuperAdminController::class)->middleware('superAdmin');
