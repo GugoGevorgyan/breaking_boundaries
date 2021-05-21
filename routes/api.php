@@ -50,7 +50,7 @@ Route::middleware('auth:api')->group(function () {
 });
 
 
-Route::get('/email', [MailController::class, 'update'])->name('login');
+Route::get('/email', [MailController::class, 'update']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('password/forgot', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('passwords.sent');

@@ -17,7 +17,6 @@ class TeamSeeder extends Seeder
     public function run()
     {
         DB::table('teams')->delete();
-
         Team::factory()
             ->count(10)
             ->create();
