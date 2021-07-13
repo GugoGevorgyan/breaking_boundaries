@@ -13,7 +13,7 @@ class AdminEmailService
     /**
      * @var AdminRepository
      */
-    protected $adminEmailRepository;
+    protected AdminRepository $adminEmailRepository;
 
     /**
      * TeamService constructor.
@@ -29,9 +29,10 @@ class AdminEmailService
     public function checkCode($code)
     {
         $admin = $this->adminEmailRepository->get(['remember_token' => $code]);
-        if ($admin[0]->id) {
-            return $admin[0];
+        if (empty($admin[0])) {
+            throw new \Exception("oops, something went wrong");
         }
+        return $admin[0];
     }
 
     /**

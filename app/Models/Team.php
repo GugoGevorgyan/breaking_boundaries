@@ -14,7 +14,6 @@ class Team extends Model
     {
         return $this->belongsTo(Club::class);
     }
-
     /**
      * @return BelongsTo
      */
@@ -28,10 +27,10 @@ class Team extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
     public function games(){
-        return $this->belongsToMany(Game::class)->withPivot('points');
+        return $this->belongsToMany(Game::class)->withPivot('points')->withTimestamps();
     }
 
 }

@@ -44,6 +44,7 @@ class RegisterController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function socialites($website){
+
         return Socialite::driver($website)->stateless()->redirect();
     }
 
@@ -54,6 +55,6 @@ class RegisterController extends Controller
      */
 
     public function socialiteCallback($website){
-        return APIResponse::successResponse($this->registerService->socialiteCallback($website));
+        return APIResponse::successResponse(new RegisterResource($this->registerService->socialiteCallback($website)));
     }
 }

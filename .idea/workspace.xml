@@ -23,13 +23,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41e6e309-62f9-447b-80a6-85be609b4522" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/breaking_boundaries.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/breaking_boundaries.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TypeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Game.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Team.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/AdminEmailService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AdminEmailService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/LoginService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/LoginService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/RegisterService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/RegisterService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/TeamSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/TeamSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/GameSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/GameSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +179,8 @@
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/manager" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/instagram" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qEz6aAtRKl82hLmRqJGEC9EUzE" />
@@ -261,6 +275,24 @@
       <workItem from="1621347662054" duration="616000" />
       <workItem from="1621404304543" duration="22000" />
       <workItem from="1621575939888" duration="719000" />
+      <workItem from="1622458156253" duration="2857000" />
+      <workItem from="1622527611583" duration="2160000" />
+      <workItem from="1622553295940" duration="165000" />
+      <workItem from="1622620062550" duration="10093000" />
+      <workItem from="1622696948611" duration="12400000" />
+      <workItem from="1622722352232" duration="3779000" />
+      <workItem from="1622781422572" duration="1119000" />
+      <workItem from="1623670499044" duration="4488000" />
+      <workItem from="1623765118691" duration="598000" />
+      <workItem from="1624885639245" duration="2209000" />
+      <workItem from="1624956507371" duration="1249000" />
+      <workItem from="1625119792428" duration="618000" />
+      <workItem from="1625136081618" duration="1424000" />
+      <workItem from="1625148922274" duration="8000" />
+      <workItem from="1625742073409" duration="2403000" />
+      <workItem from="1625807173404" duration="173000" />
+      <workItem from="1625832735940" duration="639000" />
+      <workItem from="1626157732860" duration="11213000" />
     </task>
     <servers />
   </component>
@@ -280,14 +312,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617029943599">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617029943599" />
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1617270857735">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617270857735" />
     <state x="665" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1618832760616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -296,10 +320,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618480563574" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1621404325142">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1625137245954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621404325142" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1625137245954" />
     <state x="697" y="243" key="NewPhpClassDialog" timestamp="1618832537264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -308,21 +332,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617955626522" />
-    <state x="673" y="267" width="666" height="592" key="find.popup" timestamp="1620311025821">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1626163578281">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="673" y="267" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620311025821" />
-    <state x="677" y="291" key="refactoring.ChangeSignatureDialog" timestamp="1617277151447">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626163578281" />
+    <state x="673" y="267" width="666" height="592" key="find.popup" timestamp="1626164465022">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="677" y="291" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617277151447" />
+    <state x="673" y="267" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626164465022" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1618469917606">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1618469917606" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1621575957460">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1622697098349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1621575957460" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622697098349" />
   </component>
 </project>

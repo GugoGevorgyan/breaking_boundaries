@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function team()
     {
-        return $this->belongsToMany(Team::class);
+        return $this->belongsToMany(Team::class)->withTimestamps();
     }
 
     public function sendPasswordResetNotification($token): void
