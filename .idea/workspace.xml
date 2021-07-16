@@ -24,11 +24,13 @@
   <component name="ChangeListManager">
     <list default="true" id="41e6e309-62f9-447b-80a6-85be609b4522" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/League/UpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/League/UpdateRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Response/APIResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Response/APIResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ImgFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ImgFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +182,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fast_track" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel8" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -191,6 +193,9 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Controllers\Admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Services" />
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Repositories" />
@@ -280,7 +285,9 @@
       <workItem from="1625807173404" duration="173000" />
       <workItem from="1625832735940" duration="639000" />
       <workItem from="1626157732860" duration="15438000" />
-      <workItem from="1626243767023" duration="3262000" />
+      <workItem from="1626243767023" duration="5930000" />
+      <workItem from="1626339090575" duration="6710000" />
+      <workItem from="1626411379212" duration="22956000" />
     </task>
     <servers />
   </component>
@@ -304,18 +311,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="665" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618832760616" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1618480563574">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1626436078073">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618480563574" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1626246756799">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626436078073" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1626427467496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1626246756799" />
-    <state x="697" y="243" key="NewPhpClassDialog" timestamp="1618832537264">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1626427467496" />
+    <state x="697" y="243" key="NewPhpClassDialog" timestamp="1626436932927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="697" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618832537264" />
+    <state x="697" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626436932927" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1617955626522">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -324,17 +331,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626163578281" />
-    <state x="673" y="267" width="666" height="592" key="find.popup" timestamp="1626164465022">
+    <state x="673" y="267" width="666" height="592" key="find.popup" timestamp="1626441378884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="673" y="267" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626164465022" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1618469917606">
+    <state x="673" y="267" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626441378884" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1626436216913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1618469917606" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1622697098349">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626436216913" />
+    <state x="798" y="421" key="scopes" timestamp="1626441157672">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622697098349" />
+    <state x="798" y="421" key="scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1626441157672" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1626441226552">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626441226552" />
   </component>
 </project>
