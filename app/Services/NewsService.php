@@ -40,7 +40,7 @@ class NewsService
      */
     public function get()
     {
-        return $this->newsRepository->pagination(2);
+        return $this->newsRepository->get();
     }
 
     /**

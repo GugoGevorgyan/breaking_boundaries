@@ -32,7 +32,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return APIResponse::collectionResponse(new NewsCollection($this->newsService->get()));
+        return APIResponse::successResponse(NewsResource::collection($this->newsService->get()));
     }
 
     /**
