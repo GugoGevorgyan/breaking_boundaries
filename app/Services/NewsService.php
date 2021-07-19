@@ -10,6 +10,7 @@ use App\Repositories\NewsRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Request;
 
 class NewsService
 {
@@ -60,7 +61,6 @@ class NewsService
 
     public function create($request)
     {
-
         $news = $this->newsRepository->create($request);
         if ($news->id && $request["image"] && !empty($request["image"])){
             $this->newsImageService->create($request, $news);
