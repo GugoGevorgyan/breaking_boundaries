@@ -52,16 +52,15 @@ class TeamService
     }
 
     /**
-     * @param $id
+     * @param Team $team
      * @return bool|null
      * @throws \Exception
      */
 
-    public function delete($id)
+    public function delete(Team $team)
     {
         if (Gate::allows('isAdmin')) {
-            $id = intval($id);
-            return $this->teamRepository->delete($id);
+            return $this->teamRepository->delete($team);
         }
     }
 
@@ -73,8 +72,7 @@ class TeamService
 
     public function getTeam($filters){
         $filters = intval($filters);
-        $teams = $filters ? $this->teamRepository->get($filters): null;
-        return $teams;
+        return $filters ? $this->teamRepository->get($filters): null;
     }
 
     /**
@@ -82,35 +80,50 @@ class TeamService
      */
 
     public function getAllTeam(){
-        $teams = $this->teamRepository->get();
-        if(($teams instanceof Collection)){
-            $teamClubUsers = $teams->mapWithKeys(function ($item) {
-                if (!empty($item->club['image'])) {
-                    $imagePath = asset('storage/clubs/' . $item->club['image']);
-                } else {
-                    $imagePath = "";
-                }
-                return [$item['name'] => [
-                    'criteria' => $item->team_type['criteria'],
-                    'type-name' => $item->team_type['name'],
-                    'city' => $item->city['name'],
-                    'club' => $item->club['name'],
-                    'club_image' => $imagePath,
-                    'status' => $item['status'],
-                    'users' => $item->users->map(function ($team) {
-                        return [
-                            'name' => $team->name,
-                            'email' => $team->email,
-                            'phone' => $team->phone,
-                            'status' => $team->status,
-                        ];
-                    })
-                ]
-                ];
-            });
-            return $teamClubUsers;
-        }
-        return null;
+        return $this->teamRepository->get();
+//              ->map(function ($league) {
+//              return [
+//                  'name' => $league->name,
+//                  'year' => $league->year,
+//                  'season_id' => $league->season_id,
+//              ];
+//          })
+//;
+
+//            $teamClubUsers = $teams->mapWithKeys(function ($item) {
+//                if (!empty($item->club['image'])) {
+//                    $imagePath = asset('storage/clubs/' . $item->club['image']);
+//                } else {
+//                    $imagePath = "";
+//                }
+//                return [$item['name'] => [
+//                    'criteria' => $item->teamType['criteria'],
+//                    'type-name' => $item->teamType['name'],
+//                    'city' => $item->city['name'],
+//                    'club' => $item->club['name'],
+//                    'club_image' => $imagePath,
+//                    'status' => $item['status'],
+//                            'league' => $item->league->map(function ($league) {
+//                                return [
+//                                    'name' => $league->name,
+//                                    'year' => $league->year,
+//                                    'season_id' => $league->season_id,
+//                        ];
+//                    }),
+//                    'users' => $item->users->map(function ($team) {
+//                        return [
+//                            'name' => $team->name,
+//                            'email' => $team->email,
+//                            'phone' => $team->phone,
+//                            'status' => $team->status,
+//                        ];
+//                    })
+//                ]
+//                ];
+//            });
+
+//            return $teamClubUsers;
     }
 
 }
+

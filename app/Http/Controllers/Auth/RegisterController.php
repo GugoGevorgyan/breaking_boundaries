@@ -2,102 +2,61 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\RegisterRequest;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Resources\RegisterResource;
+use App\Response\APIResponse;
+use App\Services\RegisterService;
+use Laravel\Socialite\Facades\Socialite;
 
 class RegisterController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @var RegisterService $registerService
      */
-    public function index()
+    private RegisterService $registerService;
+
+    /**
+     * TeamController constructor.
+     * @param RegisterService $registerService
+     */
+    public function __construct(RegisterService $registerService)
     {
-        //
+        $this->registerService = $registerService;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * create User
      *
-     * @return \Illuminate\Http\Response
+     * @param RegisterRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function create()
+
+    public function register(RegisterRequest $request)
     {
-        //
+        return APIResponse::successResponse(new RegisterResource($this->registerService->register($request)));
+
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param $website
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function store(RegisterRequest $request)
+    public function socialites($website)
     {
 
-        $user = new User();
-        $user->name = $request['name'];
-        $user->email = $request['email'];
-        $user->age = $request['age'];
-        $user->phone = $request['phone'];
-        $user->password =  Hash::make($request['password']);
-        $user ->save();
-
-        $user->team()->attach($request->team_id);
-
-        $login = new LoginController();
-        $userToken = $login->store($request);
-        return $userToken;
+        return Socialite::driver($website)->stateless()->redirect();
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $website
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \App\Exceptions\LoginException
      */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function socialiteCallback($website)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return APIResponse::successResponse(new RegisterResource($this->registerService->socialiteCallback($website)));
     }
 }

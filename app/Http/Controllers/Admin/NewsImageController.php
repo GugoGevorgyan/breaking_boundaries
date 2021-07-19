@@ -3,21 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Team\TeamTypeRequest;
-use App\Models\Team_type;
+use App\Models\News_image;
 use Illuminate\Http\Request;
 
-class TeamTypeController extends Controller
+class NewsImageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $team_type = Team_type::all();
-        return response()->json($team_type);
+        //
     }
 
     /**
@@ -33,25 +31,21 @@ class TeamTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(TeamTypeRequest $request)
+    public function store(Request $request)
     {
-        $team_type = new Team_type();
-        $team_type->name = $request->name;
-        $team_type->criteria = $request->criteria;
-        $team_type->save();
-        return response()->json(['message' => 'The team_type successfully created']);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param  \App\Models\News_image  $news_image
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(News_image $news_image)
     {
         //
     }
@@ -59,10 +53,10 @@ class TeamTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param  \App\Models\News_image  $news_image
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(News_image $news_image)
     {
         //
     }
@@ -70,11 +64,11 @@ class TeamTypeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\News_image  $news_image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, News_image $news_image)
     {
         //
     }
@@ -82,10 +76,10 @@ class TeamTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  \App\Models\News_image  $news_image
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(News_image $news_image)
     {
         //
     }

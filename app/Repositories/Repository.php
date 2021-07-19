@@ -3,7 +3,6 @@
 
 namespace App\Repositories;
 
-
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -162,6 +161,37 @@ abstract class Repository
         if(empty($filters)){
             return $this->query->with(array_values($relations))->get();
         };
+    }
+
+    /**
+     * @param Model $model
+     * @param $relation
+     * @param $foreInPivotKey
+     * @param array $request
+     */
+
+    public function createPivot(Model $model,$relation,$foreInPivotKey,array $request = []){
+       $model->$relation()->attach($foreInPivotKey,$request);
+    }
+
+    /**
+     * @param Model $model
+     * @param $relation
+     * @param $foreInPivotKey
+     */
+    public function deletePivot(Model $model,$relation,$foreInPivotKey){
+       $model->$relation()->detach($foreInPivotKey);
+    }
+
+    /**
+     * @param Model $model
+     * @param $relation
+     * @param $foreInPivotKey
+     * @param array $request
+     */
+
+    public function updatePivot(Model $model,$relation,$foreInPivotKey,array $request){
+       $model->$relation()->updateExistingPivot($foreInPivotKey, $request);
     }
 
 }

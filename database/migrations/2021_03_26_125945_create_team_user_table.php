@@ -16,14 +16,8 @@ class CreateTeamUserTable extends Migration
         Schema::create('team_user', function (Blueprint $table) {
             $table->id();
             $table->boolean('status')->default(false);
-            $table->foreignId('user_id')
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('team_id')
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('team_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -28,6 +28,23 @@ class AdminService
         $this->adminRepository = $adminRepository;
     }
 
+
+    public function getAllUser()
+    {
+        return $this->adminRepository->get();
+    }
+
+    /**
+     * @param $filters
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     */
+
+    public function getUser($filters)
+    {
+        $filters = intval($filters);
+        return $filters ? $this->adminRepository->get($filters) : null;
+    }
+
     /**
      *
      */
@@ -62,8 +79,7 @@ class AdminService
 
             return $this->adminRepository->delete($admin);
         }
-
-        return false;
+        throw new \InvalidArgumentException('Something went wrong');
     }
 
 }

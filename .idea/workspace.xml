@@ -23,13 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41e6e309-62f9-447b-80a6-85be609b4522" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/breaking_boundaries.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/breaking_boundaries.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ClubController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Club/CreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Club/CreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ClubService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ClubService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +63,6 @@
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/laravel/sail" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
@@ -166,6 +159,10 @@
       <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/manager" />
+      <path value="$PROJECT_DIR$/vendor/socialiteproviders/instagram" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qEz6aAtRKl82hLmRqJGEC9EUzE" />
@@ -176,8 +173,9 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Services" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel8" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -188,11 +186,14 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Controllers\Admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Services" />
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Repositories" />
-      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Requests\City" />
-      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Requests\Admin" />
+      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Resources\Admin" />
+      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Controllers\Admin" />
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Requests\Team" />
     </key>
   </component>
@@ -202,7 +203,10 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="41e6e309-62f9-447b-80a6-85be609b4522" name="Default Changelist" comment="" />
@@ -222,11 +226,67 @@
       <workItem from="1617178812821" duration="20555000" />
       <workItem from="1617256598547" duration="30261000" />
       <workItem from="1617342664583" duration="29477000" />
+      <workItem from="1617634627235" duration="523000" />
+      <workItem from="1617688645867" duration="30924000" />
+      <workItem from="1617724898303" duration="29000" />
+      <workItem from="1617775441517" duration="25620000" />
+      <workItem from="1617807658102" duration="107000" />
+      <workItem from="1617858486741" duration="26845000" />
+      <workItem from="1617943691524" duration="28036000" />
+      <workItem from="1617978110579" duration="3000" />
+      <workItem from="1618207935625" duration="9492000" />
+      <workItem from="1618289171187" duration="21231000" />
+      <workItem from="1618377687073" duration="24476000" />
+      <workItem from="1618462310596" duration="16382000" />
+      <workItem from="1618484214805" duration="332000" />
+      <workItem from="1618896025194" duration="4061000" />
+      <workItem from="1618981173656" duration="173000" />
+      <workItem from="1619499432481" duration="19610000" />
+      <workItem from="1619585683749" duration="10443000" />
+      <workItem from="1619693211329" duration="2150000" />
+      <workItem from="1619697901977" duration="389000" />
+      <workItem from="1619698457351" duration="305000" />
+      <workItem from="1619702784370" duration="1468000" />
+      <workItem from="1619757751241" duration="9727000" />
+      <workItem from="1620017623124" duration="1875000" />
+      <workItem from="1620281266596" duration="28000" />
+      <workItem from="1620289490137" duration="489000" />
+      <workItem from="1620298489346" duration="857000" />
+      <workItem from="1620299546219" duration="35000" />
+      <workItem from="1620300634120" duration="813000" />
+      <workItem from="1620310383330" duration="649000" />
+      <workItem from="1620971240772" duration="1285000" />
+      <workItem from="1621318393488" duration="644000" />
+      <workItem from="1621347662054" duration="616000" />
+      <workItem from="1621404304543" duration="22000" />
+      <workItem from="1621575939888" duration="719000" />
+      <workItem from="1622458156253" duration="2857000" />
+      <workItem from="1622527611583" duration="2160000" />
+      <workItem from="1622553295940" duration="165000" />
+      <workItem from="1622620062550" duration="10093000" />
+      <workItem from="1622696948611" duration="12400000" />
+      <workItem from="1622722352232" duration="3779000" />
+      <workItem from="1622781422572" duration="1119000" />
+      <workItem from="1623670499044" duration="4488000" />
+      <workItem from="1623765118691" duration="598000" />
+      <workItem from="1624885639245" duration="2209000" />
+      <workItem from="1624956507371" duration="1249000" />
+      <workItem from="1625119792428" duration="618000" />
+      <workItem from="1625136081618" duration="1424000" />
+      <workItem from="1625148922274" duration="8000" />
+      <workItem from="1625742073409" duration="2403000" />
+      <workItem from="1625807173404" duration="173000" />
+      <workItem from="1625832735940" duration="639000" />
+      <workItem from="1626157732860" duration="15438000" />
+      <workItem from="1626243767023" duration="5930000" />
+      <workItem from="1626339090575" duration="6710000" />
+      <workItem from="1626411379212" duration="24408000" />
+      <workItem from="1626670616852" duration="314000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -241,45 +301,45 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617029943599">
+    <state x="665" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1618832760616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="734" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617029943599" />
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1617270857735">
+    <state x="665" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618832760616" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1626436078073">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1617270857735" />
-    <state x="665" y="64" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1617352029652">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626436078073" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1626427467496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="665" y="64" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617352029652" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617365059979">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1626427467496" />
+    <state x="697" y="243" key="NewPhpClassDialog" timestamp="1626436932927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617365059979" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1617350985484">
+    <state x="697" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626436932927" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1617955626522">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617350985484" />
-    <state x="697" y="243" key="NewPhpClassDialog" timestamp="1617611719528">
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617955626522" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1626163578281">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="697" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617611719528" />
-    <state x="668" y="254" width="666" height="592" key="find.popup" timestamp="1617610552189">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626163578281" />
+    <state x="673" y="267" width="666" height="592" key="find.popup" timestamp="1626441378884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="254" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617610552189" />
-    <state x="677" y="291" key="refactoring.ChangeSignatureDialog" timestamp="1617277151447">
+    <state x="673" y="267" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626441378884" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1626436216913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="677" y="291" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617277151447" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1617617552383">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626436216913" />
+    <state x="798" y="421" key="scopes" timestamp="1626441157672">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617617552383" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1617611483195">
+    <state x="798" y="421" key="scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1626441157672" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1626441226552">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1617611483195" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626441226552" />
   </component>
 </project>

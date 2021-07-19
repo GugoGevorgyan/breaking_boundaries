@@ -3,99 +3,23 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LoginRequest;
-use App\Models\Club;
-use App\Models\Team;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Resources\LoginResource;
+use App\Response\APIResponse;
+use App\Services\LoginService;
+
 
 class LoginController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
+     * @param LoginRequest $request
      * @return \Illuminate\Http\JsonResponse
+     * @throws \App\Exceptions\LoginException
      */
-    public function store(LoginRequest $request)
+
+    public function login(LoginRequest $request)
     {
-//        $loginData = [
-//            'email' => $request->email,
-//            'password'=> $request->password,
-//        ];
-
-        if (!auth()->attempt($request->only(['email','password']))) {
-            return response()->json(['message' => 'Invalid Credentials'], 401);
-        }
-
-        $accessToken = auth()->user()->createToken('authToken')->accessToken;
-
-        return response(['access_token' => $accessToken]);
+        return APIResponse::successResponse(new LoginResource( LoginService::login($request)));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

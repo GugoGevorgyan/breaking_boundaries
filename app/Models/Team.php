@@ -10,20 +10,16 @@ class Team extends Model
 {
     use HasFactory;
 
-
-//    protected $with = ['users'];
-
     public function club()
     {
         return $this->belongsTo(Club::class);
     }
-
     /**
      * @return BelongsTo
      */
-    public function team_type()
+    public function type()
     {
-        return $this->belongsTo(Team_type::class);
+        return $this->belongsTo(Type::class);
     }
 
     public function city(){
@@ -31,7 +27,10 @@ class Team extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
+    public function games(){
+        return $this->belongsToMany(Game::class)->withPivot('points')->withTimestamps();
     }
 
 }

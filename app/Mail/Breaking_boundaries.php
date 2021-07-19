@@ -9,20 +9,26 @@ use Illuminate\Queue\SerializesModels;
 
 class Breaking_boundaries extends Mailable
 {
+
     use Queueable, SerializesModels;
 
     public $feedback;
     public $password;
+    public $email;
+
     /**
      * Create a new message instance.
+     *
+     * Breaking_boundaries constructor.
      * @param $feedback
      * @param $password
-     * @return void
+     * @param $email
      */
-    public function __construct($feedback, $password)
+    public function __construct($feedback, $password,$email)
     {
         $this->feedback = $feedback;
         $this->password = $password;
+        $this->email = $email;
     }
 
     /**

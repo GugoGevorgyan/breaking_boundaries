@@ -20,7 +20,7 @@ class CreateTeamsTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('team_type_id')
+            $table->foreignId('type_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

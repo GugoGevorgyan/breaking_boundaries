@@ -8,7 +8,7 @@ use App\Models\Team;
 class TeamRepository extends Repository
 {
     protected array $fillable = [
-        'name', 'club_id', 'team_type_id', 'city_id','status'
+        'name', 'club_id', 'type_id', 'city_id','status'
     ];
 
     /**
