@@ -133,7 +133,6 @@ abstract class Repository
     }
 
 
-
     public function find($id)
     {
         return $this->query->find($id);
@@ -158,29 +157,20 @@ abstract class Repository
             if (is_numeric($filters)) return $this->query->with(array_values($relations))->find($filters);
             if (is_array($filters)) return $this->query->with(array_values($relations))->where($filters)->get();
         }
-        if(empty($filters)){
+        if (empty($filters)) {
             return $this->query->with(array_values($relations))->get();
         };
     }
 
     /**
-     * @param Model $model
-     * @param $relation
-     * @param $foreInPivotKey
-     * @param array $request
+     * @param int $paginate
+     * @param array $relations
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
 
-    public function createPivot(Model $model,$relation,$foreInPivotKey,array $request = []){
-       $model->$relation()->attach($foreInPivotKey,$request);
-    }
-
-    /**
-     * @param Model $model
-     * @param $relation
-     * @param $foreInPivotKey
-     */
-    public function deletePivot(Model $model,$relation,$foreInPivotKey){
-       $model->$relation()->detach($foreInPivotKey);
+    public function pagination(int $paginate, array $relations = [])
+    {
+        return $this->query->with(array_values($relations))->paginate($paginate);
     }
 
     /**
@@ -190,8 +180,31 @@ abstract class Repository
      * @param array $request
      */
 
-    public function updatePivot(Model $model,$relation,$foreInPivotKey,array $request){
-       $model->$relation()->updateExistingPivot($foreInPivotKey, $request);
+    public function createPivot(Model $model, $relation, $foreInPivotKey, array $request = [])
+    {
+        $model->$relation()->attach($foreInPivotKey, $request);
+    }
+
+    /**
+     * @param Model $model
+     * @param $relation
+     * @param $foreInPivotKey
+     */
+    public function deletePivot(Model $model, $relation, $foreInPivotKey)
+    {
+        $model->$relation()->detach($foreInPivotKey);
+    }
+
+    /**
+     * @param Model $model
+     * @param $relation
+     * @param $foreInPivotKey
+     * @param array $request
+     */
+
+    public function updatePivot(Model $model, $relation, $foreInPivotKey, array $request)
+    {
+        $model->$relation()->updateExistingPivot($foreInPivotKey, $request);
     }
 
 }
