@@ -24,13 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="41e6e309-62f9-447b-80a6-85be609b4522" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/League/UpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/League/UpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Response/APIResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Response/APIResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ImgFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ImgFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +280,8 @@
       <workItem from="1626157732860" duration="15438000" />
       <workItem from="1626243767023" duration="5930000" />
       <workItem from="1626339090575" duration="6710000" />
-      <workItem from="1626411379212" duration="22956000" />
+      <workItem from="1626411379212" duration="24408000" />
+      <workItem from="1626670616852" duration="314000" />
     </task>
     <servers />
   </component>
