@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\News\CreateRequest;
 use App\Http\Requests\News\UpdateRequest;
+use App\Http\Resources\NewsCollection;
 use App\Http\Resources\NewsResource;
 use App\Models\News;
 use App\Response\APIResponse;
@@ -31,7 +32,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return APIResponse::successResponse(NewsResource::collection($this->newsService->get()));
+        return APIResponse::collectionResponse(new NewsCollection($this->newsService->get()));
     }
 
     /**

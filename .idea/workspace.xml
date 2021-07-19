@@ -24,6 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="41e6e309-62f9-447b-80a6-85be609b4522" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/NewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Response/APIResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Response/APIResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/NewsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/NewsService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +39,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -301,6 +310,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="704" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626675437815">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="704" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1626675437815" />
     <state x="665" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1618832760616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -317,18 +330,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="697" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626436932927" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1617955626522">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1626675575812">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617955626522" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626675575812" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1626163578281">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626163578281" />
-    <state x="673" y="267" width="666" height="592" key="find.popup" timestamp="1626441378884">
+    <state x="673" y="267" width="666" height="592" key="find.popup" timestamp="1626679904088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="673" y="267" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626441378884" />
+    <state x="673" y="267" width="666" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626679904088" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1626436216913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -337,9 +350,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="798" y="421" key="scopes/0.0.1920.1040@0.0.1920.1040" timestamp="1626441157672" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1626441226552">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1626675435334">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626441226552" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1626675435334" />
   </component>
 </project>
