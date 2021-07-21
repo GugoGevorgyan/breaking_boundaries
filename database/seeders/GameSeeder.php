@@ -23,15 +23,15 @@ class GameSeeder extends Seeder
             ->count(8)
             ->hasAttached(Team::factory()->count(2)
                 ->hasAttached(User::factory()->count(8),
-                    [
-                        'created_at' => date('Y-m-d H:i:s'),
-                        'updated_at' => date('Y-m-d H:i:s')
-                    ]
+//                    [
+//                        'created_at' => date('Y-m-d H:i:s'),
+//                        'updated_at' => date('Y-m-d H:i:s')
+//                    ]
                 ),
-                [
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s')
-                ]
+//                [
+//                    'created_at' => date('Y-m-d H:i:s'),
+//                    'updated_at' => date('Y-m-d H:i:s')
+//                ]
             )
             ->create();
     }

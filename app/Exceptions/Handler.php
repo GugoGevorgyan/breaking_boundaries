@@ -99,6 +99,7 @@ class Handler extends ExceptionHandler
                 $response['status'] = Response::HTTP_METHOD_NOT_ALLOWED;
                 break;
             case InvalidArgumentException::class:
+            case ImageException::class:
                 $response['message'] = trans("errors.".getClassName($exception));
                 $response['status'] = Response::HTTP_BAD_REQUEST;
                 break;

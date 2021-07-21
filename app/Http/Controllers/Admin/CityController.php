@@ -78,7 +78,6 @@ class CityController extends Controller
     public function edit(City $city)
     {
         return APIResponse::successResponse(new CityResource($this->cityService->getCity($city->id)));
-
     }
 
     /**

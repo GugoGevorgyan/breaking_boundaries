@@ -2,10 +2,12 @@
 
 namespace App\Http\Resources;
 
+use App\Services\ImgFile;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class GameResource extends JsonResource
+class NewsImageResource extends JsonResource
 {
+    use ImgFile;
     /**
      * Transform the resource into an array.
      *
@@ -15,10 +17,8 @@ class GameResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'league' => $this->league->name,
-            'start_date' => $this->start_date,
-            'end_date' => $this->end_date,
+            "id" => $this->id,
+            'name' =>$this->getFile($this->image, 'news') ,
         ];
     }
 }

@@ -12,4 +12,9 @@ class League extends Model
     public function season(){
         return $this->belongsTo(Season::class);
     }
+
+    public function games(){
+        return $this->hasMany(Game::class);
+    }
+
 }

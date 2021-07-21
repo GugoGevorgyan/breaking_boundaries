@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SeasonController;
 use App\Http\Controllers\Admin\LeagueController;
 use App\Http\Controllers\Admin\GameController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 
@@ -44,6 +45,7 @@ Route::middleware('auth:api')->group(function () {
         Route::resource('/season', SeasonController::class);
         Route::resource('/league', LeagueController::class);
         Route::resource('/game', GameController::class);
+        Route::resource('/news', NewsController::class);
     });
     Route::resource('/admin', AdminController::class)->middleware('admin');
     Route::resource('/user', UserController::class);

@@ -24,7 +24,7 @@ class Breaking_boundaries extends Mailable
      * @param $password
      * @param $email
      */
-    public function __construct($feedback, $password,$email)
+    public function __construct($feedback, $password, $email)
     {
         $this->feedback = $feedback;
         $this->password = $password;

@@ -17,7 +17,7 @@ class UserService
     /**
      * @var UserRepository
      */
-    protected $userRepository;
+    protected UserRepository $userRepository;
 
     /**
      * TeamService constructor.
@@ -74,6 +74,7 @@ class UserService
             }
             return $this->userRepository->update($newUser, $user);
         }
+        throw new \Exception("oops, something went wrong");
     }
 
     /**
