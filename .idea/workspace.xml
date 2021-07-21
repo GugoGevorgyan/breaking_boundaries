@@ -24,6 +24,13 @@
   <component name="ChangeListManager">
     <list default="true" id="41e6e309-62f9-447b-80a6-85be609b4522" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/GameController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/NewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/GameResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/GameResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Game.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/League.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/League.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Repository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ImgFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ImgFile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/NewsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/NewsService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +188,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -192,15 +199,15 @@
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Controllers\Admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Services" />
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Repositories" />
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Resources\Admin" />
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Controllers\Admin" />
       <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Requests\Team" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\breaking_boundaries\app\Http\Controllers\Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -288,6 +295,8 @@
       <workItem from="1626339090575" duration="6710000" />
       <workItem from="1626411379212" duration="24408000" />
       <workItem from="1626670616852" duration="314000" />
+      <workItem from="1626762482577" duration="9296000" />
+      <workItem from="1626845026101" duration="2226000" />
     </task>
     <servers />
   </component>
@@ -307,10 +316,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="704" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626675437815">
+    <state x="704" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626850396840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="704" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1626675437815" />
+    <state x="704" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1626850396840" />
     <state x="665" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1618832760616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -319,10 +328,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1626436078073" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1626427467496">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1626696845307">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1626427467496" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1626696845307" />
     <state x="697" y="243" key="NewPhpClassDialog" timestamp="1626436932927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

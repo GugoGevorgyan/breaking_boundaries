@@ -16,7 +16,7 @@ class GameResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'league_id' => $this->league_id,
+            'league' => $this->league->name,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
         ];

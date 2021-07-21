@@ -20,17 +20,6 @@ trait ImgFile
      */
     public function createFile($file, $folder)
     {
-//        $source = uniqid();
-//        $file = base64_decode($file);
-//        $mime = finfo_buffer(finfo_open(), $file, FILEINFO_MIME_TYPE);
-//        list($fileType, $mimeType) = explode('/', $mime, 2);
-//        $path = '/public/'.$folder.'/'.$source.'.'.$mimeType;
-////        dd($fileType);
-////        file_put_contents($path, $file);
-//
-//        return [$source, $mimeType, $fileType, filesize($path)];
-
-
         if (!strpos($file, ';')) throw new ImageException("invalid image");
 
             $extension = explode('/', explode(':', substr($file, 0, strpos($file, ';')))[1])[1];   // .jpg .png .pdf
@@ -70,7 +59,6 @@ trait ImgFile
     public function getFile($imageName, $folder)
     {
         return asset('storage/' . $folder . '/' . $imageName);
-
     }
 
 

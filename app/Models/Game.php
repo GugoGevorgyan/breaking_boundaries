@@ -14,4 +14,8 @@ class Game extends Model
         return $this->belongsToMany(Team::class)->withPivot('points')->withTimestamps();
     }
 
+    public function league(){
+        return $this->belongsTo(League::class);
+    }
+
 }
