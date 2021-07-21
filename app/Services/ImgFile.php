@@ -32,7 +32,6 @@ trait ImgFile
             return $imageName;
     }
 
-
     /**
      * @param $file
      * @param Model $model
