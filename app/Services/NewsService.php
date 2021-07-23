@@ -61,8 +61,8 @@ class NewsService
 
     public function create($request)
     {
-        $news = $this->newsRepository->create($request,['link', 'title', 'description', 'view']);
-        if ($news->id && $request["image"] && !empty($request["image"])){
+        $news = $this->newsRepository->create($request, ['link', 'title', 'description', 'view']);
+        if ($news->id && $request["image"] && !empty($request["image"])) {
             $this->newsImageService->create($request, $news);
         }
         return $news;
@@ -74,10 +74,10 @@ class NewsService
      * @return Model
      */
 
-    public function update(UpdateRequest $request,News $news)
+    public function update(UpdateRequest $request, News $news)
     {
 
-            $updateNews =  $this->newsRepository->update($request->all(), $news);
+        $updateNews = $this->newsRepository->update($request->all(), $news);
 
 //        if ($news->id && $request["image"] && !empty($request["image"])){
 //            $this->newsImageService->update($request, $news);
@@ -94,7 +94,7 @@ class NewsService
 
     public function delete(News $news)
     {
-            return $this->newsRepository->delete($news);
+        return $this->newsRepository->delete($news);
     }
 
 }
