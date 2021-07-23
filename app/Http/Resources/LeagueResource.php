@@ -18,8 +18,8 @@ class LeagueResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'year' => $this->name,
-//            'season_name' => $this->season->name,
-            'season_id' => $this->season_id,
+            'season' => $this->season->name,
+//            'season_id' => $this->season_id,
 
         ];
     }

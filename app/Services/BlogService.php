@@ -49,7 +49,7 @@ class BlogService
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
      */
 
-    public function show($filters)
+    public function show($filters = 2)
     {
         $filters = intval($filters);
         return $filters ? $this->blogRepository->get($filters) : null;
@@ -61,7 +61,7 @@ class BlogService
 
     public function create($request)
     {
-        $blog = $this->blogRepository->create($request);
+        $blog = $this->blogRepository->create($request,['link', 'title', 'description', 'view']);
         if ($blog->id && $request["image"] && !empty($request["image"])){
             $this->blogImageService->create($request, $blog);
         }

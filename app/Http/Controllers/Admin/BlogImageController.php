@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Blog_image\CreateRequest;
+use App\Http\Requests\Blog_image\UpdateRequest;
 use App\Models\Blog_image;
 use Illuminate\Http\Request;
 
@@ -34,7 +36,7 @@ class BlogImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         //
     }
@@ -68,7 +70,7 @@ class BlogImageController extends Controller
      * @param  \App\Models\Blog_image  $blog_image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog_image $blog_image)
+    public function update(UpdateRequest $request, Blog_image $blog_image)
     {
         //
     }

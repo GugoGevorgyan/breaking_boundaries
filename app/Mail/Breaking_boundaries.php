@@ -13,7 +13,6 @@ class Breaking_boundaries extends Mailable
     use Queueable, SerializesModels;
 
     public $feedback;
-    public $password;
     public $email;
 
     /**
@@ -21,13 +20,11 @@ class Breaking_boundaries extends Mailable
      *
      * Breaking_boundaries constructor.
      * @param $feedback
-     * @param $password
      * @param $email
      */
-    public function __construct($feedback, $password, $email)
+    public function __construct($feedback, $email)
     {
         $this->feedback = $feedback;
-        $this->password = $password;
         $this->email = $email;
     }
 

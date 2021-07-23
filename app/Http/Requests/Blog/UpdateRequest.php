@@ -28,6 +28,7 @@ class UpdateRequest extends FormRequest
             "title" => 'sometimes|max:255',
             "description" => 'sometimes|max:255',
             "view" => 'sometimes|integer',
+            "status" => 'sometimes|boolean',
         ];
     }
 }

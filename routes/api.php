@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\SeasonController;
 use App\Http\Controllers\Admin\LeagueController;
 use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\VlogController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 
@@ -46,11 +48,12 @@ Route::middleware('auth:api')->group(function () {
         Route::resource('/league', LeagueController::class);
         Route::resource('/game', GameController::class);
         Route::resource('/news', NewsController::class);
+        Route::resource('/blog', BlogController::class);
+        Route::resource('/vlog', VlogController::class);
     });
     Route::resource('/admin', AdminController::class)->middleware('admin');
     Route::resource('/user', UserController::class);
 });
-
 
 Route::get('/email', [MailController::class, 'update']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');

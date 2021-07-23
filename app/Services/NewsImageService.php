@@ -5,6 +5,7 @@ namespace App\Services;
 
 
 use App\Http\Requests\News\UpdateRequest;
+use App\Http\Requests\News_image\CreateRequest;
 use App\Models\News;
 use App\Models\News_image;
 use App\Models\User;
@@ -60,7 +61,7 @@ class NewsImageService
      * @return Model|mixed
      */
 
-    public function create($request, News $news)
+    public function create(CreateRequest $request, News $news)
     {
 //dd(gettype($request["image"]));
         if (gettype($request["image"] === "array")){

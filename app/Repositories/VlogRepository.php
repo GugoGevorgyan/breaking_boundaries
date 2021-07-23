@@ -3,12 +3,12 @@
 
 namespace App\Repositories;
 
-use App\Models\Blog;
+use App\Models\Vlog;
 
-class BlogRepository extends Repository
+class VlogRepository extends Repository
 {
     protected array $fillable = [
-        'link', 'title', 'description', 'view','status'
+        'title','link','admin_id','status'
     ];
 
     /**
@@ -16,7 +16,7 @@ class BlogRepository extends Repository
      */
     public function model(): string
     {
-        return Blog::class;
+        return Vlog::class;
     }
 
 }

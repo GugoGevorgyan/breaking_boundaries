@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsTable extends Migration
+class CreateVlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('vlogs', function (Blueprint $table) {
             $table->id();
-            $table->string("link");
-            $table->string("title");
-            $table->string("description");
-            $table->integer("view")->nullable();
+            $table->string('title');
+            $table->string('link');
+            $table->foreignId('admin_id')->constrained('users');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('vlogs');
     }
 }

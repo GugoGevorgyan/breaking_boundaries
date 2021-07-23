@@ -13,7 +13,7 @@ abstract class Repository
     /**
      * @var array
      */
-    protected array $fillable = [];
+    protected array $fillable = ["ddd"];
 
     /**
      * @var Builder

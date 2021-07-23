@@ -8,7 +8,7 @@ use App\Models\News;
 class NewsRepository extends Repository
 {
     protected array $fillable = [
-        'link', 'title', 'description', 'view'
+        'link', 'title', 'description', 'view','status'
     ];
 
     /**

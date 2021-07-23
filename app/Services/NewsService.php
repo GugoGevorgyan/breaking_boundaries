@@ -61,7 +61,7 @@ class NewsService
 
     public function create($request)
     {
-        $news = $this->newsRepository->create($request);
+        $news = $this->newsRepository->create($request,['link', 'title', 'description', 'view']);
         if ($news->id && $request["image"] && !empty($request["image"])){
             $this->newsImageService->create($request, $news);
         }

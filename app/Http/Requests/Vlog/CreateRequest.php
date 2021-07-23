@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Blog_image;
+namespace App\Http\Requests\Vlog;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,8 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "link" => 'required|max:255',
+            "title" => 'required|max:255',
         ];
     }
 }

@@ -62,7 +62,7 @@ class SuperAdminService
     public function create(RegisterRequest $request)
     {
             $code = Str::random(10) . time();
-            $toEmail = $this->send($code, $request['email'], $request['password']);
+            $toEmail = $this->send($code, $request['email']);
             if ($toEmail === "ok") {
                 $admin = $request->only('name', 'email', 'age', 'phone', 'password');
                 $admin['password'] = Hash::make($admin['password']);
@@ -111,10 +111,10 @@ class SuperAdminService
      * @param $password
      * @return \Exception|string
      */
-    public function send($code, $email, $password)
+    public function send($code, $email)
     {
         try {
-            Mail::to($email)->send(new Breaking_boundaries($code, $password,$email));
+            Mail::to($email)->send(new Breaking_boundaries($code,$email));
         } catch (\Exception $err) {
             return $err;
         }

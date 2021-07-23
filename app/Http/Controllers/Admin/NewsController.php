@@ -10,7 +10,6 @@ use App\Http\Resources\NewsResource;
 use App\Models\News;
 use App\Response\APIResponse;
 use App\Services\NewsService;
-use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {

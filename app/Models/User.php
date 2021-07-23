@@ -53,4 +53,8 @@ class User extends Authenticatable
         $this->notify(new PasswordResetNotification($token));
     }
 
+    public function vlogs(){
+        return $this->hasMany(Vlog::class);
+    }
+
 }

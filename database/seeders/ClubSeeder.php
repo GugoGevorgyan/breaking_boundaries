@@ -18,7 +18,7 @@ class ClubSeeder extends Seeder
         DB::table('clubs')->delete();
 
         Club::factory()
-            ->count(10)
+            ->count(3)
             ->create();
         }
 }

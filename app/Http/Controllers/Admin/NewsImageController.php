@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\News_image\CreateRequest;
+use App\Http\Requests\News_image\UpdateRequest;
 use App\Models\News_image;
 use Illuminate\Http\Request;
 
@@ -34,7 +36,7 @@ class NewsImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         //
     }
@@ -68,7 +70,7 @@ class NewsImageController extends Controller
      * @param  \App\Models\News_image  $news_image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News_image $news_image)
+    public function update(UpdateRequest $request, News_image $news_image)
     {
         //
     }

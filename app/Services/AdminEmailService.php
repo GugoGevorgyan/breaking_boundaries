@@ -44,11 +44,11 @@ class AdminEmailService
     public function update(EmailRequest $request)
     {
         $admin = $this->checkCode($request->remember_token);
-        $user['password'] = Hash::make($request['password']);
+//        $user['password'] = Hash::make($request['password']);
         $user['status'] = 1;
         $user['email_verified_at'] = now();
         $user['remember_token'] = null;
-        $this->adminEmailRepository->update($user, $admin);
+        $this->adminEmailRepository->update($user, $admin,["email_verified_at","remember_token","status"]);
         return LoginService::login($request);
     }
 }
